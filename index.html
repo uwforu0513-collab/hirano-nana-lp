@@ -182,6 +182,18 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center;
+      animation: heroSlideIn 1.4s cubic-bezier(.16,1,.3,1) .2s both;
+    }
+    @keyframes heroSlideIn {
+      0%   { transform: translateX(-100%); opacity: 0; }
+      60%  { opacity: 1; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--bg-section);
+      z-index: -1;
     }
     .hero-right-ov { display: none; }
     .hero-badge {
@@ -548,8 +560,51 @@
     .whatis-step-txt strong { display: block; font-size: .92rem; margin-bottom: .3rem; font-weight: 500; }
     .whatis-step-txt span { font-size: .78rem; color: var(--text-muted); }
 
-    /* ===== SERVICES ===== */
+    /* ===== SERVICES (Promise) ===== */
     .services { padding: 10rem 7vw; background: var(--bg); }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .promise-card {
+      padding: 3.2rem 2.8rem 3rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      transition: background .4s;
+    }
+    .promise-card:last-child { border-right: none; }
+    .promise-card:hover { background: var(--bg-section); }
+    .promise-num {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: .25em;
+      color: var(--text);
+      margin-bottom: 1.8rem;
+    }
+    .promise-ttl {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: .05em;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+    .promise-txt {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 2.1;
+      letter-spacing: .04em;
+      text-align: left;
+    }
+    @media (max-width: 960px) {
+      .promise-grid { grid-template-columns: 1fr; }
+      .promise-card { border-right: none; }
+    }
     .svc-intro {
       max-width: 720px; margin: 0 auto 5rem;
       text-align: center;
@@ -1261,8 +1316,7 @@
 <section class="reels">
   <div class="sec-header">
     <span class="sec-label js-fade">Works</span>
-    <h2 class="sec-ttl js-fade d1">動画×戦略で、<br>Instagramをここまで変える</h2>
-    <p class="reels-lead js-fade d2">幅広いジャンル・運用目的に合わせた動画をご提供します</p>
+    <p class="reels-lead js-fade d2">幅広いジャンル・目的に合わせた動画をご提供します</p>
   </div>
 
   <div class="reels-phones">
@@ -1466,8 +1520,7 @@
     </div>
   </div>
   <div class="benefit-sum js-fade">
-    SNSが「がんばるもの」から<strong>「働いてくれるもの」</strong>に変わり、<br>
-    <strong>集客と売上が安定する仕組み</strong>ができあがります。
+    SNSが「がんばるもの」から<strong>「働いてくれるもの」</strong>へ。
   </div>
 </section>
 
@@ -1481,8 +1534,7 @@
     <div class="whatis-left js-fade">
       <p class="whatis-lead">動画編集だけじゃない。<br><em>集客まで、まるごと担います。</em></p>
       <p class="whatis-txt">
-        SNS運用代行とは、アカウントの設計から投稿・動画制作・分析・改善まで、Instagram運用にまつわるすべてをサポートするサービスです。<br><br>
-        「動画を作ってもらう」だけでなく、<strong style="color:var(--text)">「誰に・何を・どう届けるか」の戦略設計から一緒に取り組む</strong>ことで、フォロワーが増えるだけでなく、問い合わせや売上につながるアカウントを育てます。
+        アカウント設計から投稿・動画制作・分析・改善まで、Instagram運用にまつわるすべてをサポート。<strong style="color:var(--text)">「誰に・何を・どう届けるか」の戦略設計から一緒に取り組む</strong>ことで、問い合わせや売上につながるアカウントを育てます。
       </p>
       <div class="whatis-tags">
         <span class="whatis-tag">アカウント設計</span>
@@ -1538,95 +1590,28 @@
   </div>
 </section>
 
-<!-- ============ SERVICES ============ -->
+<!-- ============ SERVICES (Promise) ============ -->
 <section class="services">
   <div class="sec-header">
-    <span class="sec-label js-fade">Service Detail</span>
-    <h2 class="sec-ttl js-fade d1">サービス詳細</h2>
+    <span class="sec-label js-fade">Our Promise</span>
+    <h2 class="sec-ttl js-fade d1">私がお届けする、<br><em>3つの価値</em></h2>
   </div>
-  <p class="svc-intro js-fade">アカウントの運用方針から立ち上げ、企画・撮影・動画編集・インサイト分析まで。<br>動画編集にとどまらず、<strong style="color:var(--text)">集客につながる設計ごとお任せいただけます。</strong></p>
-  <div class="svc-grid">
-
-    <div class="svc-card js-fade">
-      <div class="svc-card-top">
-        <div class="svc-num-wrap">
-          <span class="svc-num-bar"></span>
-          <span class="svc-num">01</span>
-        </div>
-        <div class="svc-icon">⚙️</div>
-      </div>
-      <h3 class="svc-ttl">アカウント初期設計</h3>
-      <p class="svc-desc">どんな目的で運用するかをヒアリングし、アカウントの土台を固めます。ここをしっかり作ることで、その後の発信がすべてブレなくなります。</p>
-      <ul class="svc-checks">
-        <li>コンセプト・ターゲット設定</li>
-        <li>競合アカウントのリサーチ</li>
-        <li>プロフィール文・アイコン最適化</li>
-        <li>固定ハッシュタグの方向性</li>
-      </ul>
-      <p class="svc-collect">「何を投稿すればいいかわからない」がなくなる</p>
+  <div class="promise-grid">
+    <div class="promise-card js-fade">
+      <div class="promise-num">01</div>
+      <h3 class="promise-ttl">戦略から、一緒に</h3>
+      <p class="promise-txt">動画を作るだけでは、届きません。「誰に・何を・どう伝えるか」を一緒に設計するから、発信のブレが消え、信頼が積み上がります。</p>
     </div>
-
-    <div class="svc-card js-fade d1">
-      <div class="svc-card-top">
-        <div class="svc-num-wrap">
-          <span class="svc-num-bar"></span>
-          <span class="svc-num">02</span>
-        </div>
-        <div class="svc-icon">💡</div>
-      </div>
-      <h3 class="svc-ttl">企画・コンテンツ設計</h3>
-      <p class="svc-desc">「バズる」ではなく「届く」コンテンツを設計します。リール企画・台本作成・投稿スケジュール管理まで一貫して担当します。</p>
-      <ul class="svc-checks">
-        <li>月間コンテンツ企画</li>
-        <li>リール台本作成</li>
-        <li>投稿スケジュール管理</li>
-        <li>集客導線の設計</li>
-      </ul>
-      <p class="svc-collect">発信の迷いがなくなり、時間が生まれる</p>
+    <div class="promise-card js-fade d1">
+      <div class="promise-num">02</div>
+      <h3 class="promise-ttl">集客につながる動画を</h3>
+      <p class="promise-txt">見られて終わる動画ではなく、〝次の行動〟を生む動画を。構成・間・言葉まで計算した、ブランドの雰囲気を崩さない映像をお届けします。</p>
     </div>
-
-    <div class="svc-card js-fade d2">
-      <div class="svc-card-top">
-        <div class="svc-num-wrap">
-          <span class="svc-num-bar"></span>
-          <span class="svc-num">03</span>
-        </div>
-        <div class="svc-icon">🎬</div>
-      </div>
-      <h3 class="svc-ttl">撮影サポート・動画編集</h3>
-      <p class="svc-desc">画角・構成・見せ方の提案から、リール動画の編集まで対応。「動画を作ってもらうだけ」ではなく、見た人が行動したくなる動画を一緒につくります。</p>
-      <ul class="svc-checks">
-        <li>撮影ディレクション</li>
-        <li>リール・ストーリーズ編集</li>
-        <li>テロップ・BGM・エフェクト</li>
-        <li>サムネイル作成</li>
-      </ul>
-      <p class="svc-collect">動画が〝集客装置〟に変わる</p>
+    <div class="promise-card js-fade d2">
+      <div class="promise-num">03</div>
+      <h3 class="promise-ttl">データで、磨き続ける</h3>
+      <p class="promise-txt">投稿して終わり、ではなく、数字を見て次の一手を打つ。毎月の振り返りで、アカウントは〝育っていく資産〟になります。</p>
     </div>
-
-    <div class="svc-card js-fade d3">
-      <div class="svc-card-top">
-        <div class="svc-num-wrap">
-          <span class="svc-num-bar"></span>
-          <span class="svc-num">04</span>
-        </div>
-        <div class="svc-icon">📊</div>
-      </div>
-      <h3 class="svc-ttl">インサイト分析・改善</h3>
-      <p class="svc-desc">1ヶ月ごとにアカウントの数値を分析し、次月の改善策を提案します。「なんとなく投稿」ではなく、データに基づいた運用でどんどん精度が上がっていきます。</p>
-      <ul class="svc-checks">
-        <li>月次レポート作成</li>
-        <li>定期MTGによる振り返り</li>
-        <li>投稿改善の提案</li>
-        <li>次月プランの設計</li>
-      </ul>
-      <p class="svc-collect">やるほど成果が上がる仕組みが回り始める</p>
-    </div>
-
-  </div>
-  <div class="svc-footer js-fade">
-    すべてをまるごとお任せいただけます。<br>
-    <strong>「何から始めればいいかわからない」という方も、ヒアリングから丁寧にサポートします。</strong>
   </div>
 </section>
 
@@ -1674,38 +1659,16 @@
     <span class="sec-label js-fade">Price</span>
     <h2 class="sec-ttl js-fade d1">料金プラン</h2>
   </div>
-  <p class="pricing-lead js-fade d2">お悩み・目的に合わせて、3つのプランをご用意しています。<br>料金詳細は、お気軽にInstagramのDMからご相談ください。</p>
+  <p class="pricing-lead js-fade d2">目的に合わせた3つのプラン。料金の詳細はDMにてご案内しています。</p>
 
   <div class="plan-grid">
 
-    <!-- PLAN C (left - smallest) -->
-    <div class="plan-card js-fade">
-      <div class="plan-label">Plan C</div>
-      <h3 class="plan-name">撮影・編集プラン</h3>
-      <p class="plan-for">イベントや単発の企画で、撮影・編集だけお願いしたい方向け</p>
-      <div class="plan-price-wrap">
-        <div class="plan-price-ask">お問い合わせください</div>
-        <span class="plan-price-unit">PROJECT / SPOT</span>
-      </div>
-      <ul class="plan-list">
-        <li>撮影ディレクション</li>
-        <li>動画編集（テロップ・BGM・エフェクト）</li>
-        <li>納品データのご提供</li>
-        <li class="muted">アカウント設計</li>
-        <li class="muted">企画・コンテンツ設計</li>
-        <li class="muted">投稿運用・分析</li>
-      </ul>
-      <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="plan-btn">
-        このプランで相談する →
-      </a>
-    </div>
-
-    <!-- PLAN A (center - featured) -->
-    <div class="plan-card featured js-fade d1">
+    <!-- PLAN A -->
+    <div class="plan-card featured js-fade">
       <div class="plan-badge">＼ 1番おすすめ ／</div>
       <div class="plan-label">Plan A</div>
-      <h3 class="plan-name">まるごとお任せ<br>フルサポートプラン</h3>
-      <p class="plan-for">アカウントがなくて、設計から運用まで全部まるっとお任せしたい方向け</p>
+      <h3 class="plan-name">フルサポートプラン</h3>
+      <p class="plan-for">設計から運用まで、まるごとお任せしたい方</p>
       <div class="plan-price-wrap">
         <div class="plan-price-ask">お問い合わせください</div>
         <span class="plan-price-unit">MONTHLY ／ 3ヶ月更新</span>
@@ -1725,11 +1688,11 @@
       </a>
     </div>
 
-    <!-- PLAN B (right) -->
-    <div class="plan-card js-fade d2">
+    <!-- PLAN B -->
+    <div class="plan-card js-fade d1">
       <div class="plan-label">Plan B</div>
       <h3 class="plan-name">企画・撮影・編集プラン</h3>
-      <p class="plan-for">動画で集客したいけれど「何を投稿すればいいかわからない」方向け</p>
+      <p class="plan-for">「何を投稿すればいいかわからない」方</p>
       <div class="plan-price-wrap">
         <div class="plan-price-ask">お問い合わせください</div>
         <span class="plan-price-unit">MONTHLY</span>
@@ -1747,11 +1710,32 @@
       </a>
     </div>
 
+    <!-- PLAN C -->
+    <div class="plan-card js-fade d2">
+      <div class="plan-label">Plan C</div>
+      <h3 class="plan-name">撮影・編集プラン</h3>
+      <p class="plan-for">単発の撮影・編集だけお願いしたい方</p>
+      <div class="plan-price-wrap">
+        <div class="plan-price-ask">お問い合わせください</div>
+        <span class="plan-price-unit">PROJECT / SPOT</span>
+      </div>
+      <ul class="plan-list">
+        <li>撮影ディレクション</li>
+        <li>動画編集（テロップ・BGM・エフェクト）</li>
+        <li>納品データのご提供</li>
+        <li class="muted">アカウント設計</li>
+        <li class="muted">企画・コンテンツ設計</li>
+        <li class="muted">投稿運用・分析</li>
+      </ul>
+      <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="plan-btn">
+        このプランで相談する →
+      </a>
+    </div>
+
   </div>
 
   <p class="pricing-note js-fade">
-    ※ プランはヒアリングの上、お客さまの現状と目的に合わせてカスタマイズいたします。<br>
-    ※ 「どのプランが合うかわからない」という方も、まずはお気軽にDMください。料金の詳細も、DMにてご案内しております。
+    ※ プランはヒアリングの上、現状と目的に合わせてカスタマイズいたします。どのプランが合うか迷う方も、まずはお気軽にDMからご相談ください。
   </p>
 </section>
 
