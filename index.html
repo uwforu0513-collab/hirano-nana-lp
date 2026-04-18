@@ -285,6 +285,152 @@
     }
     .benefit-sum strong { color: var(--accent); }
 
+    /* ===== REELS MOCKUP ===== */
+    .reels {
+      padding: 8rem 7vw;
+      background: linear-gradient(135deg, #1a0533 0%, #2d0a4e 30%, #1a1a2e 60%, #0d0d1a 100%);
+      overflow: hidden;
+      position: relative;
+    }
+    .reels::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(196,137,90,.18) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 50%, rgba(130,80,200,.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .reels .sec-label { color: var(--accent); }
+    .reels .sec-ttl  { color: #fff; }
+    .reels-lead {
+      font-size: .88rem; color: rgba(255,255,255,.5);
+      margin-top: .8rem; text-align: center;
+    }
+    .reels-phones {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 1.8rem;
+      margin-top: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+    /* phone frame */
+    .phone {
+      flex-shrink: 0;
+      width: 200px;
+      background: #111;
+      border-radius: 36px;
+      border: 2.5px solid rgba(255,255,255,.18);
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.06);
+      position: relative;
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    .phone:nth-child(2) { transform: translateY(-24px); }
+    .phone:hover { transform: translateY(-8px) scale(1.03); }
+    .phone:nth-child(2):hover { transform: translateY(-32px) scale(1.03); }
+    /* notch */
+    .phone-notch {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 70px; height: 20px;
+      background: #111; border-radius: 0 0 14px 14px;
+      z-index: 10;
+    }
+    /* status bar */
+    .phone-statusbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 16px 4px;
+      position: absolute; top: 0; left: 0; right: 0; z-index: 9;
+    }
+    .phone-statusbar-time { font-size: 9px; font-weight: 700; color: #fff; font-family: var(--font-jp); }
+    .phone-statusbar-icons { display: flex; gap: 4px; align-items: center; }
+    .phone-statusbar-icons span { display: block; width: 10px; height: 6px; background: rgba(255,255,255,.7); border-radius: 1px; }
+    /* ig header */
+    .phone-igbar {
+      position: absolute; top: 22px; left: 0; right: 0; z-index: 9;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 6px 12px;
+    }
+    .phone-igbar-back { color: #fff; font-size: 14px; }
+    .phone-igbar-label { font-size: 11px; font-weight: 700; color: #fff; letter-spacing: .05em; font-family: var(--font-jp); }
+    .phone-igbar-cam { color: #fff; font-size: 13px; }
+    /* content */
+    .phone-content {
+      aspect-ratio: 9/16;
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-content img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .phone-content-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 50%);
+    }
+    /* side actions */
+    .phone-actions {
+      position: absolute; right: 10px; bottom: 80px;
+      display: flex; flex-direction: column; align-items: center; gap: 14px; z-index: 9;
+    }
+    .phone-action { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .phone-action-icon {
+      width: 22px; height: 22px; border: 1.5px solid rgba(255,255,255,.85);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .phone-action svg { width: 11px; height: 11px; fill: none; stroke: #fff; stroke-width: 2; }
+    .phone-action-label { font-size: 8px; color: rgba(255,255,255,.8); font-family: var(--font-jp); }
+    /* bottom bar */
+    .phone-bottombar {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 9;
+      padding: 8px 14px 10px;
+    }
+    .phone-user {
+      display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+    }
+    .phone-avatar {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent); border: 1px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8px; color: #fff; font-weight: 700;
+    }
+    .phone-username { font-size: 9px; font-weight: 700; color: #fff; font-family: var(--font-jp); }
+    .phone-follow-btn {
+      font-size: 8px; color: #fff; border: 1px solid #fff; border-radius: 3px;
+      padding: 1px 5px; font-family: var(--font-jp); margin-left: 4px;
+    }
+    .phone-caption { font-size: 8px; color: rgba(255,255,255,.85); line-height: 1.5; font-family: var(--font-jp); }
+    /* ig nav */
+    .phone-nav {
+      display: flex; justify-content: space-around; align-items: center;
+      padding: 8px 0 6px; background: rgba(0,0,0,.9);
+    }
+    .phone-nav svg { width: 16px; height: 16px; fill: none; stroke: rgba(255,255,255,.8); stroke-width: 1.8; }
+    .phone-nav svg.active { stroke: #fff; }
+    /* label tag */
+    .phone-tag {
+      position: absolute; bottom: 100px; left: 12px; z-index: 9;
+      background: rgba(255,255,255,.15); backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.25); border-radius: 20px;
+      padding: 4px 10px; font-size: 9px; color: #fff; font-family: var(--font-jp);
+      letter-spacing: .05em;
+    }
+    @media (max-width: 960px) {
+      .reels-phones { gap: 1rem; }
+      .phone { width: 150px; border-radius: 28px; }
+      .phone:nth-child(2) { transform: translateY(-16px); }
+    }
+    @media (max-width: 600px) {
+      .reels-phones { gap: .6rem; }
+      .phone { width: 108px; border-radius: 20px; }
+      .phone:nth-child(2) { transform: translateY(-10px); }
+      .phone-igbar-label, .phone-igbar-back, .phone-igbar-cam,
+      .phone-actions, .phone-tag { display: none; }
+    }
+
     /* ===== SERVICES ===== */
     .services { padding: 8rem 7vw; background: var(--bg-section); }
     .svc-grid {
@@ -724,6 +870,163 @@
   <div class="benefit-sum js-fade">
     SNSが「がんばるもの」から<strong>「働いてくれるもの」</strong>に変わり、<br>
     <strong>集客と売上が安定する仕組み</strong>ができあがります。
+  </div>
+</section>
+
+<!-- ============ REELS MOCKUP ============ -->
+<section class="reels">
+  <div class="sec-header">
+    <span class="sec-label js-fade">Works</span>
+    <h2 class="sec-ttl js-fade d1">動画×戦略で、<br>Instagramをここまで変える</h2>
+    <p class="reels-lead js-fade d2">幅広いジャンル・運用目的に合わせた動画をご提供します</p>
+  </div>
+
+  <div class="reels-phones">
+
+    <!-- Phone 1 -->
+    <div class="phone js-fade">
+      <div class="phone-notch"></div>
+      <div class="phone-statusbar">
+        <span class="phone-statusbar-time">9:41</span>
+        <div class="phone-statusbar-icons"><span></span><span style="width:7px"></span><span style="width:5px"></span></div>
+      </div>
+      <div class="phone-igbar">
+        <span class="phone-igbar-back">‹</span>
+        <span class="phone-igbar-label">リール</span>
+        <span class="phone-igbar-cam">⊙</span>
+      </div>
+      <div class="phone-content">
+        <img src="images/hero.png" alt="リール1">
+        <div class="phone-content-overlay"></div>
+        <div class="phone-tag">戦略設計</div>
+        <div class="phone-actions">
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <span class="phone-action-label">いいね</span>
+          </div>
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <span class="phone-action-label">コメント</span>
+          </div>
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+            <span class="phone-action-label">シェア</span>
+          </div>
+        </div>
+        <div class="phone-bottombar">
+          <div class="phone-user">
+            <div class="phone-avatar">N</div>
+            <span class="phone-username">yours.7ms</span>
+            <span class="phone-follow-btn">フォロー</span>
+          </div>
+          <p class="phone-caption">SNS運用を仕組み化する<br>ための設計とは…</p>
+        </div>
+      </div>
+      <div class="phone-nav">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg class="active" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+    </div>
+
+    <!-- Phone 2 (center, elevated) -->
+    <div class="phone js-fade d1">
+      <div class="phone-notch"></div>
+      <div class="phone-statusbar">
+        <span class="phone-statusbar-time">9:41</span>
+        <div class="phone-statusbar-icons"><span></span><span style="width:7px"></span><span style="width:5px"></span></div>
+      </div>
+      <div class="phone-igbar">
+        <span class="phone-igbar-back">‹</span>
+        <span class="phone-igbar-label">リール</span>
+        <span class="phone-igbar-cam">⊙</span>
+      </div>
+      <div class="phone-content">
+        <img src="images/profile.png" alt="リール2">
+        <div class="phone-content-overlay"></div>
+        <div class="phone-tag">動画編集</div>
+        <div class="phone-actions">
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <span class="phone-action-label">いいね</span>
+          </div>
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <span class="phone-action-label">コメント</span>
+          </div>
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+            <span class="phone-action-label">シェア</span>
+          </div>
+        </div>
+        <div class="phone-bottombar">
+          <div class="phone-user">
+            <div class="phone-avatar">N</div>
+            <span class="phone-username">yours.7ms</span>
+            <span class="phone-follow-btn">フォロー</span>
+          </div>
+          <p class="phone-caption">届く動画には<br>必ず〝設計〟がある</p>
+        </div>
+      </div>
+      <div class="phone-nav">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg class="active" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+    </div>
+
+    <!-- Phone 3 -->
+    <div class="phone js-fade d2">
+      <div class="phone-notch"></div>
+      <div class="phone-statusbar">
+        <span class="phone-statusbar-time">9:41</span>
+        <div class="phone-statusbar-icons"><span></span><span style="width:7px"></span><span style="width:5px"></span></div>
+      </div>
+      <div class="phone-igbar">
+        <span class="phone-igbar-back">‹</span>
+        <span class="phone-igbar-label">リール</span>
+        <span class="phone-igbar-cam">⊙</span>
+      </div>
+      <div class="phone-content">
+        <img src="images/sub.png" alt="リール3">
+        <div class="phone-content-overlay"></div>
+        <div class="phone-tag">集客設計</div>
+        <div class="phone-actions">
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <span class="phone-action-label">いいね</span>
+          </div>
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <span class="phone-action-label">コメント</span>
+          </div>
+          <div class="phone-action">
+            <div class="phone-action-icon"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+            <span class="phone-action-label">シェア</span>
+          </div>
+        </div>
+        <div class="phone-bottombar">
+          <div class="phone-user">
+            <div class="phone-avatar">N</div>
+            <span class="phone-username">yours.7ms</span>
+            <span class="phone-follow-btn">フォロー</span>
+          </div>
+          <p class="phone-caption">見た人が動く<br>リールの構成とは</p>
+        </div>
+      </div>
+      <div class="phone-nav">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg class="active" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+    </div>
+
   </div>
 </section>
 
