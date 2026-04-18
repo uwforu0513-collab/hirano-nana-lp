@@ -1047,24 +1047,35 @@
       margin-top: .8rem;
       letter-spacing: .06em;
     }
-    .voices-scroll {
+    /* marquee-style auto slider */
+    .voices-marquee {
+      position: relative;
+      margin: 3.5rem calc(-7vw) 0;
+      overflow: hidden;
+      padding: 1rem 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+    }
+    .voices-track {
       display: flex;
       gap: 1.5rem;
-      overflow-x: auto;
-      padding: 3.5rem 0 1rem;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
+      width: max-content;
+      animation: voicesScroll 48s linear infinite;
     }
-    .voices-scroll::-webkit-scrollbar { display: none; }
+    .voices-marquee:hover .voices-track { animation-play-state: paused; }
+    @keyframes voicesScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     .voice-card {
       flex-shrink: 0;
-      width: clamp(260px, 35vw, 340px);
+      width: clamp(260px, 32vw, 340px);
       background: var(--bg-section);
       border: 1px solid var(--border);
       overflow: hidden;
-      transition: transform .3s;
+      transition: transform .3s, box-shadow .3s;
     }
-    .voice-card:hover { transform: translateY(-4px); }
+    .voice-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.08); }
     .voice-card img {
       width: 100%;
       height: auto;
@@ -1078,6 +1089,9 @@
       margin-top: 1.4rem;
       font-family: var(--font-display);
       text-transform: uppercase;
+    }
+    @media (max-width: 600px) {
+      .voices-track { animation-duration: 36s; }
     }
 
     /* ===== FAQ ===== */
@@ -1802,24 +1816,23 @@
     <h2 class="sec-ttl js-fade d1">クライアントさまの声</h2>
     <p class="voices-lead js-fade d2">一緒にアカウントをつくってきた方々からいただいたメッセージです。</p>
   </div>
-  <div class="voices-scroll">
-    <div class="voice-card js-fade">
-      <img src="images/voice1.png" alt="クライアントの声1">
-    </div>
-    <div class="voice-card js-fade d1">
-      <img src="images/voice2.png" alt="クライアントの声2">
-    </div>
-    <div class="voice-card js-fade d2">
-      <img src="images/voice3.png" alt="クライアントの声3">
-    </div>
-    <div class="voice-card js-fade d3">
-      <img src="images/voice4.png" alt="クライアントの声4">
-    </div>
-    <div class="voice-card js-fade d4">
-      <img src="images/voice5.png" alt="クライアントの声5">
+  <div class="voices-marquee">
+    <div class="voices-track">
+      <!-- Set 1 -->
+      <div class="voice-card"><img src="images/voice1.png" alt="クライアントの声1"></div>
+      <div class="voice-card"><img src="images/voice2.png" alt="クライアントの声2"></div>
+      <div class="voice-card"><img src="images/voice3.png" alt="クライアントの声3"></div>
+      <div class="voice-card"><img src="images/voice4.png" alt="クライアントの声4"></div>
+      <div class="voice-card"><img src="images/voice5.png" alt="クライアントの声5"></div>
+      <!-- Set 2 (for seamless loop) -->
+      <div class="voice-card" aria-hidden="true"><img src="images/voice1.png" alt=""></div>
+      <div class="voice-card" aria-hidden="true"><img src="images/voice2.png" alt=""></div>
+      <div class="voice-card" aria-hidden="true"><img src="images/voice3.png" alt=""></div>
+      <div class="voice-card" aria-hidden="true"><img src="images/voice4.png" alt=""></div>
+      <div class="voice-card" aria-hidden="true"><img src="images/voice5.png" alt=""></div>
     </div>
   </div>
-  <p class="voices-hint js-fade">← スワイプして見る →</p>
+  <p class="voices-hint js-fade">All Voices — Auto Scroll</p>
 </section>
 
 <!-- ============ FAQ ============ -->
