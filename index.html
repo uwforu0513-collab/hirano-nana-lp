@@ -1021,34 +1021,111 @@
       font-size: .85rem; color: var(--text-muted); line-height: 2;
     }
 
-    /* ===== FINAL CTA ===== */
-    .final { padding: 11rem 7vw; background: var(--bg); text-align: center; }
-    .final-inner { max-width: 620px; margin: 0 auto; }
-    .final-ttl {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
-      font-weight: 400;
-      line-height: 1.45;
-      margin-bottom: 2rem;
-      letter-spacing: .05em;
+    /* ===== BIG CTA (shared) ===== */
+    .cta-big {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 1.8rem 4.5rem;
+      background: var(--text);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: .25em;
+      border: 1px solid var(--text);
+      transition: all .4s cubic-bezier(.16,1,.3,1);
+      text-transform: uppercase;
+      min-width: min(440px, 90vw);
+      box-shadow: 0 12px 40px rgba(13,13,13,.18);
     }
-    .final-sub {
-      font-size: .9rem; color: var(--text-muted); line-height: 2.3; margin-bottom: 3.5rem;
-      letter-spacing: .06em;
-    }
-    .final-btn {
-      display: inline-flex; align-items: center; gap: 1rem;
-      padding: 1.4rem 3.2rem;
+    .cta-big:hover {
       background: transparent;
       color: var(--text);
-      font-size: .78rem; font-weight: 400; letter-spacing: .3em;
-      border: 1px solid var(--text);
-      transition: all .4s;
+      letter-spacing: .32em;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 50px rgba(13,13,13,.22);
+    }
+    .cta-big svg { flex-shrink: 0; }
+
+    /* ===== POST-HERO CTA ===== */
+    .cta-posthero {
+      padding: 5rem 7vw 6rem;
+      background: var(--bg);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-posthero-eyebrow {
+      font-family: var(--font-display);
+      font-size: .78rem;
+      letter-spacing: .5em;
+      color: var(--text);
       margin-bottom: 1.4rem;
       text-transform: uppercase;
     }
-    .final-btn:hover { background: var(--text); color: var(--white); letter-spacing: .38em; }
+    .cta-posthero-ttl {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+      font-weight: 400;
+      line-height: 1.55;
+      margin-bottom: 2.4rem;
+      letter-spacing: .05em;
+    }
+    .cta-posthero-note {
+      margin-top: 1.4rem;
+      font-size: .72rem;
+      color: var(--text-muted);
+      letter-spacing: .15em;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final { padding: 11rem 7vw; background: var(--bg-section); text-align: center; }
+    .final-inner { max-width: 680px; margin: 0 auto; }
+    .final-ttl {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 2.2rem;
+      letter-spacing: .05em;
+    }
+    .final-sub {
+      font-size: .95rem; color: var(--text-muted); line-height: 2.3; margin-bottom: 3.5rem;
+      letter-spacing: .06em;
+    }
+    .final-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 1.2rem;
+      padding: 1.8rem 4.5rem;
+      background: var(--text);
+      color: var(--white);
+      font-size: 1rem; font-weight: 500; letter-spacing: .25em;
+      border: 1px solid var(--text);
+      transition: all .4s cubic-bezier(.16,1,.3,1);
+      margin-bottom: 1.6rem;
+      text-transform: uppercase;
+      min-width: min(440px, 90vw);
+      box-shadow: 0 12px 40px rgba(13,13,13,.18);
+    }
+    .final-btn:hover {
+      background: transparent;
+      color: var(--text);
+      letter-spacing: .32em;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 50px rgba(13,13,13,.22);
+    }
     .final-note { font-size: .72rem; color: var(--text-muted); letter-spacing: .15em; }
+
+    @media (max-width: 600px) {
+      .cta-big, .final-btn {
+        padding: 1.4rem 2rem;
+        font-size: .85rem;
+        letter-spacing: .18em;
+        min-width: 0;
+        width: 100%;
+      }
+      .cta-big:hover, .final-btn:hover { letter-spacing: .22em; }
+      .cta-posthero { padding: 4rem 1.5rem; }
+    }
 
     /* ===== FOOTER ===== */
     .footer {
@@ -1167,6 +1244,17 @@
       <div class="hero-badge-ig">@yours.7ms ／ SNS運用代行</div>
     </div>
   </div>
+</section>
+
+<!-- ============ POST-HERO CTA ============ -->
+<section class="cta-posthero">
+  <div class="cta-posthero-eyebrow js-fade">Free Consultation</div>
+  <h2 class="cta-posthero-ttl js-fade d1">まずはお気軽に、<br>InstagramのDMからご相談ください。</h2>
+  <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="cta-big js-fade d2">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+    InstagramのDMで無料相談する
+  </a>
+  <p class="cta-posthero-note js-fade d3">※ご質問だけでもお気軽にどうぞ</p>
 </section>
 
 <!-- ============ REELS MOCKUP ============ -->
@@ -1792,8 +1880,8 @@
     <h2 class="final-ttl js-fade">「このままでいいのかな」<br>と思った今が、<br>変わるタイミングです。</h2>
     <p class="final-sub js-fade d1">まずはあなたのお悩みを聞かせてください。<br>無理な勧誘は一切ありません。</p>
     <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="final-btn js-fade d2">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-      InstagramのDMで相談する
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+      InstagramのDMで無料相談する
     </a>
     <p class="final-note js-fade d3">※ご質問だけでもお気軽にどうぞ</p>
   </div>
