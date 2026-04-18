@@ -617,64 +617,152 @@
       padding: 8rem 7vw;
       background: var(--bg-dark);
       color: var(--white);
-      text-align: center;
     }
     .pricing .sec-label { color: var(--accent); }
-    .pricing .sec-ttl { color: var(--white); margin-bottom: 3.5rem; }
-    .price-box {
-      max-width: 520px;
-      margin: 0 auto;
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 3.5rem 3rem;
+    .pricing .sec-ttl { color: var(--white); }
+    .pricing .sec-header { text-align: center; }
+    .pricing-lead {
+      text-align: center; margin-top: 1rem;
+      font-size: .88rem; color: rgba(255,255,255,.5);
+      margin-bottom: 4rem;
     }
-    .price-name {
-      font-size: .78rem;
-      letter-spacing: .2em;
-      color: rgba(255,255,255,.5);
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem;
+      max-width: 1180px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .plan-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 2.8rem 2.2rem;
+      position: relative;
+      transition: transform .3s, border-color .3s, background .3s;
+      display: flex; flex-direction: column;
+      height: 100%;
+    }
+    .plan-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(196,137,90,.5);
+    }
+    .plan-card.featured {
+      background: rgba(196,137,90,.08);
+      border: 1px solid var(--accent);
+      transform: scale(1.03);
+    }
+    .plan-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+    .plan-badge {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--white);
+      padding: .4rem 1.4rem;
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .18em;
+      white-space: nowrap;
+    }
+    .plan-label {
+      font-family: var(--font-en);
+      font-size: 1rem;
+      letter-spacing: .3em;
+      color: var(--accent);
+      margin-bottom: .6rem;
+    }
+    .plan-name {
+      font-size: 1.05rem; font-weight: 700;
+      line-height: 1.6;
+      margin-bottom: .9rem;
+    }
+    .plan-for {
+      font-size: .75rem; color: rgba(255,255,255,.5);
+      line-height: 1.8;
+      padding: .8rem .9rem;
+      background: rgba(0,0,0,.2);
+      border-left: 2px solid var(--accent);
       margin-bottom: 1.8rem;
     }
-    .price-num {
-      font-family: var(--font-en);
-      font-size: 5rem;
-      font-weight: 300;
-      line-height: 1;
-      margin-bottom: .4rem;
-    }
-    .price-num span { font-size: 1.8rem; }
-    .price-cycle {
-      font-size: .75rem;
-      color: rgba(255,255,255,.4);
-      margin-bottom: 2.5rem;
-    }
-    .price-list { list-style: none; text-align: left; margin-bottom: 2.5rem; }
-    .price-list li {
-      padding: .8rem 0;
+    .plan-price-wrap {
+      text-align: center;
+      padding: 1.4rem 0;
+      border-top: 1px solid rgba(255,255,255,.08);
       border-bottom: 1px solid rgba(255,255,255,.08);
-      font-size: .85rem;
-      display: flex; align-items: center; gap: .8rem;
+      margin-bottom: 1.8rem;
     }
-    .price-list li::before {
+    .plan-price {
+      font-family: var(--font-en);
+      font-size: 2.8rem; font-weight: 300;
+      line-height: 1;
+    }
+    .plan-price small { font-size: 1rem; margin-right: 3px; }
+    .plan-price-unit {
+      font-size: .68rem;
+      letter-spacing: .15em;
+      color: rgba(255,255,255,.4);
+      margin-top: .5rem;
+      display: block;
+    }
+    .plan-price-ask {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .15em;
+    }
+    .plan-list {
+      list-style: none; margin-bottom: 1.8rem;
+      flex-grow: 1;
+    }
+    .plan-list li {
+      padding: .55rem 0;
+      font-size: .78rem;
+      display: flex; align-items: flex-start; gap: .6rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,.85);
+    }
+    .plan-list li::before {
       content: '✓';
       color: var(--accent);
       font-weight: 700;
       flex-shrink: 0;
+      margin-top: 2px;
     }
-    .price-btn {
-      display: inline-flex; align-items: center; gap: .8rem;
-      padding: 1.1rem 2.8rem;
-      background: var(--accent);
+    .plan-list li.muted {
+      color: rgba(255,255,255,.25);
+    }
+    .plan-list li.muted::before {
+      content: '—';
+      color: rgba(255,255,255,.25);
+    }
+    .plan-btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: .6rem;
+      width: 100%;
+      padding: 1rem 1.4rem;
+      background: transparent;
       color: var(--white);
-      font-size: .95rem;
+      font-size: .82rem;
       font-weight: 700;
-      letter-spacing: .1em;
-      border: 2px solid var(--accent);
+      letter-spacing: .08em;
+      border: 1.5px solid rgba(255,255,255,.3);
       transition: all .3s;
     }
-    .price-btn:hover { background: transparent; }
-    .price-note {
-      margin-top: 1rem;
-      font-size: .75rem;
-      color: rgba(255,255,255,.35);
+    .plan-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .plan-card.featured .plan-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .plan-card.featured .plan-btn:hover {
+      background: transparent;
+    }
+    .pricing-note {
+      max-width: 780px; margin: 3rem auto 0;
+      text-align: center;
+      font-size: .78rem; color: rgba(255,255,255,.4);
+      line-height: 1.9;
     }
 
     /* ===== PROFILE ===== */
@@ -889,7 +977,9 @@
       .svc-grid { grid-template-columns: 1fr; }
 
       .pricing { padding: 5rem 1.5rem; }
-      .price-box { padding: 2.5rem 1.5rem; }
+      .plan-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .plan-card.featured { transform: none; margin-top: 1rem; }
+      .plan-card.featured:hover { transform: translateY(-4px); }
 
       .profile { padding: 5rem 1.5rem; }
       .profile-inner { grid-template-columns: 1fr; gap: 3.5rem; }
@@ -1359,25 +1449,89 @@
 
 <!-- ============ PRICING ============ -->
 <section class="pricing">
-  <span class="sec-label js-fade">Price</span>
-  <h2 class="sec-ttl js-fade d1">料金プラン</h2>
-  <div class="price-box js-fade d2">
-    <p class="price-name">SNS運用代行 ／ 月額プラン</p>
-    <div class="price-num"><span>¥</span>70,000<span style="font-size:1.5rem"> /月</span></div>
-    <p class="price-cycle">3ヶ月更新 ／ 税込</p>
-    <ul class="price-list">
-      <li>アカウント設計（コンセプト・ターゲット・インサイト）</li>
-      <li>撮影サポート</li>
-      <li>動画編集（企画・台本・編集）</li>
-      <li>運用改善・定期MTG・レポート作成</li>
-      <li>ヒアリングによる最適プランのご提案</li>
-    </ul>
-    <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="price-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-      InstagramのDMで相談する
-    </a>
-    <p class="price-note">まずはお気軽にご相談ください。無理な勧誘は一切ありません。</p>
+  <div class="sec-header">
+    <span class="sec-label js-fade">Price</span>
+    <h2 class="sec-ttl js-fade d1">料金プラン</h2>
   </div>
+  <p class="pricing-lead js-fade d2">お悩み・目的に合わせて、3つのプランをご用意しています。</p>
+
+  <div class="plan-grid">
+
+    <!-- PLAN C (left - smallest) -->
+    <div class="plan-card js-fade">
+      <div class="plan-label">Plan C</div>
+      <h3 class="plan-name">撮影・編集プラン</h3>
+      <p class="plan-for">イベントや単発の企画で、撮影・編集だけお願いしたい方向け</p>
+      <div class="plan-price-wrap">
+        <div class="plan-price-ask">要お見積もり</div>
+        <span class="plan-price-unit">PROJECT / SPOT</span>
+      </div>
+      <ul class="plan-list">
+        <li>撮影ディレクション</li>
+        <li>動画編集（テロップ・BGM・エフェクト）</li>
+        <li>納品データのご提供</li>
+        <li class="muted">アカウント設計</li>
+        <li class="muted">企画・コンテンツ設計</li>
+        <li class="muted">投稿運用・分析</li>
+      </ul>
+      <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="plan-btn">
+        このプランで相談する →
+      </a>
+    </div>
+
+    <!-- PLAN A (center - featured) -->
+    <div class="plan-card featured js-fade d1">
+      <div class="plan-badge">＼ 1番おすすめ ／</div>
+      <div class="plan-label">Plan A</div>
+      <h3 class="plan-name">まるごとお任せ<br>フルサポートプラン</h3>
+      <p class="plan-for">アカウントがなくて、設計から運用まで全部まるっとお任せしたい方向け</p>
+      <div class="plan-price-wrap">
+        <div class="plan-price"><small>¥</small>70,000<small>/月</small></div>
+        <span class="plan-price-unit">MONTHLY ／ 3ヶ月更新・税込</span>
+      </div>
+      <ul class="plan-list">
+        <li>アカウント初期設計・プロフィール最適化</li>
+        <li>コンセプト設計・競合リサーチ</li>
+        <li>フィード投稿・ハイライト制作</li>
+        <li>企画提案・台本作成</li>
+        <li>撮影ディレクション</li>
+        <li>リール動画編集</li>
+        <li>インサイト分析・月次レポート</li>
+        <li>定期ミーティング</li>
+      </ul>
+      <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="plan-btn">
+        このプランで相談する →
+      </a>
+    </div>
+
+    <!-- PLAN B (right) -->
+    <div class="plan-card js-fade d2">
+      <div class="plan-label">Plan B</div>
+      <h3 class="plan-name">企画・撮影・編集プラン</h3>
+      <p class="plan-for">動画で集客したいけれど「何を投稿すればいいかわからない」方向け</p>
+      <div class="plan-price-wrap">
+        <div class="plan-price-ask">要お見積もり</div>
+        <span class="plan-price-unit">MONTHLY</span>
+      </div>
+      <ul class="plan-list">
+        <li>月間コンテンツ企画</li>
+        <li>リール台本作成</li>
+        <li>撮影ディレクション</li>
+        <li>リール動画編集</li>
+        <li class="muted">アカウント初期設計</li>
+        <li class="muted">投稿運用・インサイト分析</li>
+      </ul>
+      <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="plan-btn">
+        このプランで相談する →
+      </a>
+    </div>
+
+  </div>
+
+  <p class="pricing-note js-fade">
+    ※ 表記は一例です。ヒアリングの上、お客さまの現状と目的に合わせた最適なプランをご提案します。<br>
+    ※ 「どのプランが合うかわからない」という方も、まずはお気軽にご相談ください。
+  </p>
 </section>
 
 <!-- ============ PROFILE ============ -->
