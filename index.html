@@ -464,6 +464,46 @@
     .profile-list li { padding: .35rem 0; font-size: .85rem; color: var(--text-muted); }
     .profile-list li::before { content: '・'; color: var(--accent); }
 
+    /* ===== VOICES ===== */
+    .voices { padding: 8rem 7vw; background: var(--bg-dark); color: var(--white); }
+    .voices .sec-label { color: var(--accent); }
+    .voices .sec-ttl { color: var(--white); }
+    .voices-lead {
+      font-size: .88rem;
+      color: rgba(255,255,255,.5);
+      margin-top: .8rem;
+    }
+    .voices-scroll {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 3.5rem 0 1rem;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .voices-scroll::-webkit-scrollbar { display: none; }
+    .voice-card {
+      flex-shrink: 0;
+      width: clamp(260px, 35vw, 340px);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      overflow: hidden;
+      transition: transform .3s;
+    }
+    .voice-card:hover { transform: translateY(-4px); }
+    .voice-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .voices-hint {
+      text-align: center;
+      font-size: .72rem;
+      color: rgba(255,255,255,.25);
+      letter-spacing: .15em;
+      margin-top: 1.2rem;
+    }
+
     /* ===== FAQ ===== */
     .faq { padding: 8rem 7vw; background: var(--bg-section); }
     .faq-inner { max-width: 780px; margin: 4rem auto 0; }
@@ -621,7 +661,7 @@
     </a>
   </div>
   <div class="hero-right js-fade-img">
-    <img src="images/profile.jpg" alt="平野那奈 プロフィール写真">
+    <img src="images/hero.png" alt="平野那奈 プロフィール写真">
     <div class="hero-right-ov"></div>
     <div class="hero-badge js-fade d4">
       <div class="hero-badge-name">Nana Hirano</div>
@@ -752,7 +792,7 @@
 <section class="profile">
   <div class="profile-inner">
     <div class="profile-img-wrap js-fade-img">
-      <img src="images/profile.jpg" alt="平野那奈">
+      <img src="images/profile.png" alt="平野那奈">
       <div class="profile-img-deco"></div>
       <div class="profile-namecard">
         <div class="profile-namecard-name">Nana Hirano</div>
@@ -783,6 +823,33 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- ============ VOICES ============ -->
+<section class="voices">
+  <div class="sec-header" style="text-align:left;">
+    <span class="sec-label js-fade">Client Voice</span>
+    <h2 class="sec-ttl js-fade d1">クライアントさまの声</h2>
+    <p class="voices-lead js-fade d2">一緒にアカウントをつくってきた方々からいただいたメッセージです。</p>
+  </div>
+  <div class="voices-scroll">
+    <div class="voice-card js-fade">
+      <img src="images/voice1.png" alt="クライアントの声1">
+    </div>
+    <div class="voice-card js-fade d1">
+      <img src="images/voice2.png" alt="クライアントの声2">
+    </div>
+    <div class="voice-card js-fade d2">
+      <img src="images/voice3.png" alt="クライアントの声3">
+    </div>
+    <div class="voice-card js-fade d3">
+      <img src="images/voice4.png" alt="クライアントの声4">
+    </div>
+    <div class="voice-card js-fade d4">
+      <img src="images/voice5.png" alt="クライアントの声5">
+    </div>
+  </div>
+  <p class="voices-hint js-fade">← スワイプして見る →</p>
 </section>
 
 <!-- ============ FAQ ============ -->
