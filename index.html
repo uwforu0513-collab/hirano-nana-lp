@@ -705,10 +705,22 @@
       display: block;
     }
     .plan-price-ask {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--accent);
-      letter-spacing: .15em;
+      letter-spacing: .08em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+    }
+    .plan-price-ask::before,
+    .plan-price-ask::after {
+      content: '';
+      width: 14px;
+      height: 1px;
+      background: var(--accent);
+      opacity: .6;
     }
     .plan-list {
       list-style: none; margin-bottom: 1.8rem;
@@ -1453,7 +1465,7 @@
     <span class="sec-label js-fade">Price</span>
     <h2 class="sec-ttl js-fade d1">料金プラン</h2>
   </div>
-  <p class="pricing-lead js-fade d2">お悩み・目的に合わせて、3つのプランをご用意しています。</p>
+  <p class="pricing-lead js-fade d2">お悩み・目的に合わせて、3つのプランをご用意しています。<br>料金詳細は、お気軽にInstagramのDMからご相談ください。</p>
 
   <div class="plan-grid">
 
@@ -1463,7 +1475,7 @@
       <h3 class="plan-name">撮影・編集プラン</h3>
       <p class="plan-for">イベントや単発の企画で、撮影・編集だけお願いしたい方向け</p>
       <div class="plan-price-wrap">
-        <div class="plan-price-ask">要お見積もり</div>
+        <div class="plan-price-ask">お問い合わせください</div>
         <span class="plan-price-unit">PROJECT / SPOT</span>
       </div>
       <ul class="plan-list">
@@ -1486,8 +1498,8 @@
       <h3 class="plan-name">まるごとお任せ<br>フルサポートプラン</h3>
       <p class="plan-for">アカウントがなくて、設計から運用まで全部まるっとお任せしたい方向け</p>
       <div class="plan-price-wrap">
-        <div class="plan-price"><small>¥</small>70,000<small>/月</small></div>
-        <span class="plan-price-unit">MONTHLY ／ 3ヶ月更新・税込</span>
+        <div class="plan-price-ask">お問い合わせください</div>
+        <span class="plan-price-unit">MONTHLY ／ 3ヶ月更新</span>
       </div>
       <ul class="plan-list">
         <li>アカウント初期設計・プロフィール最適化</li>
@@ -1510,7 +1522,7 @@
       <h3 class="plan-name">企画・撮影・編集プラン</h3>
       <p class="plan-for">動画で集客したいけれど「何を投稿すればいいかわからない」方向け</p>
       <div class="plan-price-wrap">
-        <div class="plan-price-ask">要お見積もり</div>
+        <div class="plan-price-ask">お問い合わせください</div>
         <span class="plan-price-unit">MONTHLY</span>
       </div>
       <ul class="plan-list">
@@ -1529,8 +1541,8 @@
   </div>
 
   <p class="pricing-note js-fade">
-    ※ 表記は一例です。ヒアリングの上、お客さまの現状と目的に合わせた最適なプランをご提案します。<br>
-    ※ 「どのプランが合うかわからない」という方も、まずはお気軽にご相談ください。
+    ※ プランはヒアリングの上、お客さまの現状と目的に合わせてカスタマイズいたします。<br>
+    ※ 「どのプランが合うかわからない」という方も、まずはお気軽にDMください。料金の詳細も、DMにてご案内しております。
   </p>
 </section>
 
