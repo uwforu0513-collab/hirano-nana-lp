@@ -431,55 +431,185 @@
       .phone-actions, .phone-tag { display: none; }
     }
 
-    /* ===== SERVICES ===== */
-    .services { padding: 8rem 7vw; background: var(--bg-section); }
-    .svc-grid {
+    /* ===== WHAT IS ===== */
+    .whatis { padding: 8rem 7vw; background: var(--bg); }
+    .whatis-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 4rem;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 4rem auto 0;
     }
-    .svc-card {
-      background: var(--white);
-      padding: 2.8rem 2.5rem;
+    .whatis-left {}
+    .whatis-lead {
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      font-weight: 700;
+      line-height: 1.7;
+      margin-bottom: 1.6rem;
+    }
+    .whatis-lead em { font-style: normal; color: var(--accent); }
+    .whatis-txt {
+      font-size: .88rem; line-height: 2.2; color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .whatis-tags { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .whatis-tag {
+      display: inline-block;
+      padding: .35rem .9rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: .72rem;
+      letter-spacing: .08em;
+      border-radius: 999px;
+    }
+    .whatis-right {}
+    .whatis-box {
+      background: var(--bg-dark);
+      color: var(--white);
+      padding: 2.5rem;
       position: relative;
-      overflow: hidden;
-      transition: box-shadow .3s;
     }
-    .svc-card::after {
-      content: '';
-      position: absolute; left: 0; top: 0;
-      width: 3px; height: 100%;
-      background: var(--accent);
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform .4s cubic-bezier(.16,1,.3,1);
-    }
-    .svc-card:hover::after { transform: scaleY(1); }
-    .svc-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.06); }
-    .svc-tag {
+    .whatis-box-label {
       font-family: var(--font-en);
       font-size: .68rem;
       letter-spacing: .3em;
       color: var(--accent);
-      margin-bottom: .9rem;
+      margin-bottom: 1.2rem;
     }
-    .svc-ttl { font-size: 1.15rem; font-weight: 700; margin-bottom: .7rem; }
-    .svc-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 1rem; }
-    .svc-result {
+    .whatis-steps { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .whatis-step {
+      display: flex; align-items: flex-start; gap: 1.2rem;
+      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .whatis-step:last-child { border-bottom: none; }
+    .whatis-step-n {
+      font-family: var(--font-en);
+      font-size: 1.5rem; font-weight: 300;
+      color: var(--accent); line-height: 1;
+      flex-shrink: 0; width: 2rem;
+    }
+    .whatis-step-txt { font-size: .85rem; line-height: 1.8; }
+    .whatis-step-txt strong { display: block; font-size: .92rem; margin-bottom: .2rem; }
+    .whatis-step-txt span { font-size: .78rem; color: rgba(255,255,255,.5); }
+
+    /* ===== SERVICES ===== */
+    .services { padding: 8rem 7vw; background: var(--bg-section); }
+    .svc-intro {
+      max-width: 780px; margin: 0 auto 4rem;
+      text-align: center;
+      font-size: .9rem; color: var(--text-muted); line-height: 2;
+    }
+    .svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 1rem;
+    }
+    .svc-card {
+      background: var(--white);
+      padding: 2.4rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .3s, transform .3s;
+      border-radius: 2px;
+    }
+    .svc-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.08); transform: translateY(-3px); }
+    .svc-card-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+    .svc-num-wrap { display: flex; align-items: center; gap: .7rem; }
+    .svc-num-bar { width: 24px; height: 2px; background: var(--accent); }
+    .svc-num {
+      font-family: var(--font-en);
+      font-size: 2rem; font-weight: 300;
+      color: var(--accent); line-height: 1;
+    }
+    .svc-icon {
+      width: 48px; height: 48px;
+      background: var(--bg-section);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .svc-ttl { font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; }
+    .svc-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 1.1rem; }
+    .svc-checks { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .svc-checks li {
+      font-size: .8rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .svc-checks li::before {
+      content: '✓'; color: var(--accent);
+      font-weight: 700; flex-shrink: 0;
+    }
+    .svc-collect {
+      margin-top: 1.8rem;
       display: flex; align-items: flex-start; gap: .5rem;
-      font-size: .82rem; font-weight: 500; color: var(--accent);
+      background: var(--bg-section);
+      padding: .8rem 1rem;
+      border-left: 2px solid var(--accent);
+      font-size: .8rem; font-weight: 600; color: var(--text);
     }
-    .svc-result::before { content: '→'; flex-shrink: 0; }
+    .svc-collect::before { content: '→'; color: var(--accent); flex-shrink: 0; }
     .svc-footer {
       margin-top: 3rem;
+      background: var(--bg-dark);
+      color: var(--white);
+      padding: 2.5rem 2.8rem;
+      text-align: center;
+      font-size: .9rem;
+      line-height: 2.1;
+    }
+    .svc-footer strong { color: var(--accent); }
+
+    /* ===== FLOW ===== */
+    .flow { padding: 8rem 7vw; background: var(--bg); }
+    .flow-steps {
+      display: flex;
+      gap: 0;
+      margin-top: 4rem;
+      position: relative;
+    }
+    .flow-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 36px; right: 36px;
+      height: 1px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .flow-step {
+      flex: 1; text-align: center;
+      position: relative; z-index: 1;
+      padding: 0 1rem;
+    }
+    .flow-step-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
       background: var(--white);
       border: 1px solid var(--border);
-      padding: 2rem 2.5rem;
-      text-align: center;
-      font-size: .875rem;
-      line-height: 2;
-      color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      font-family: var(--font-en);
+      font-size: 1.4rem; font-weight: 300;
+      color: var(--text);
+      transition: background .3s, border-color .3s, color .3s;
+    }
+    .flow-step:hover .flow-step-circle {
+      background: var(--accent); border-color: var(--accent); color: var(--white);
+    }
+    .flow-step-ttl { font-size: .88rem; font-weight: 700; margin-bottom: .4rem; }
+    .flow-step-txt { font-size: .75rem; color: var(--text-muted); line-height: 1.7; }
+    @media (max-width: 960px) {
+      .whatis-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .svc-grid { grid-template-columns: 1fr; gap: 12px; }
+      .flow-steps { flex-direction: column; gap: 2rem; }
+      .flow-steps::before { display: none; }
+      .flow-step { display: flex; gap: 1.5rem; text-align: left; align-items: flex-start; }
+      .flow-step-circle { flex-shrink: 0; width: 56px; height: 56px; font-size: 1.1rem; margin: 0; }
     }
 
     /* ===== PRICING ===== */
@@ -1030,41 +1160,200 @@
   </div>
 </section>
 
+<!-- ============ WHAT IS ============ -->
+<section class="whatis">
+  <div class="sec-header">
+    <span class="sec-label js-fade">What is SNS Management</span>
+    <h2 class="sec-ttl js-fade d1">SNS運用代行って、<br><em>何をしてくれるの？</em></h2>
+  </div>
+  <div class="whatis-inner">
+    <div class="whatis-left js-fade">
+      <p class="whatis-lead">動画編集だけじゃない。<br><em>集客まで、まるごと担います。</em></p>
+      <p class="whatis-txt">
+        SNS運用代行とは、アカウントの設計から投稿・動画制作・分析・改善まで、Instagram運用にまつわるすべてをサポートするサービスです。<br><br>
+        「動画を作ってもらう」だけでなく、<strong style="color:var(--text)">「誰に・何を・どう届けるか」の戦略設計から一緒に取り組む</strong>ことで、フォロワーが増えるだけでなく、問い合わせや売上につながるアカウントを育てます。
+      </p>
+      <div class="whatis-tags">
+        <span class="whatis-tag">アカウント設計</span>
+        <span class="whatis-tag">企画・台本</span>
+        <span class="whatis-tag">撮影サポート</span>
+        <span class="whatis-tag">動画編集</span>
+        <span class="whatis-tag">インサイト分析</span>
+        <span class="whatis-tag">集客導線設計</span>
+      </div>
+    </div>
+    <div class="whatis-right js-fade d1">
+      <div class="whatis-box">
+        <p class="whatis-box-label">WHAT I DO — 担当範囲</p>
+        <ul class="whatis-steps">
+          <li class="whatis-step">
+            <span class="whatis-step-n">01</span>
+            <div class="whatis-step-txt">
+              <strong>戦略設計</strong>
+              <span>ターゲット・コンセプト・ハッシュタグ・プロフィール最適化</span>
+            </div>
+          </li>
+          <li class="whatis-step">
+            <span class="whatis-step-n">02</span>
+            <div class="whatis-step-txt">
+              <strong>企画・コンテンツ設計</strong>
+              <span>リール企画・台本作成・投稿スケジュール管理</span>
+            </div>
+          </li>
+          <li class="whatis-step">
+            <span class="whatis-step-n">03</span>
+            <div class="whatis-step-txt">
+              <strong>撮影サポート</strong>
+              <span>画角・構成・見せ方の提案と現場ディレクション</span>
+            </div>
+          </li>
+          <li class="whatis-step">
+            <span class="whatis-step-n">04</span>
+            <div class="whatis-step-txt">
+              <strong>動画編集</strong>
+              <span>リール・ストーリーズの編集・テロップ・BGM選定</span>
+            </div>
+          </li>
+          <li class="whatis-step">
+            <span class="whatis-step-n">05</span>
+            <div class="whatis-step-txt">
+              <strong>インサイト分析・改善</strong>
+              <span>月次レポート・MTGによる数値振り返りと改善提案</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ SERVICES ============ -->
 <section class="services">
   <div class="sec-header">
-    <span class="sec-label js-fade">Service</span>
-    <h2 class="sec-ttl js-fade d1">サポート内容</h2>
+    <span class="sec-label js-fade">Service Detail</span>
+    <h2 class="sec-ttl js-fade d1">サービス詳細</h2>
   </div>
+  <p class="svc-intro js-fade">アカウントの運用方針から立ち上げ、企画・撮影・動画編集・インサイト分析まで。<br>動画編集にとどまらず、<strong style="color:var(--text)">集客につながる設計ごとお任せいただけます。</strong></p>
   <div class="svc-grid">
+
     <div class="svc-card js-fade">
-      <div class="svc-tag">SERVICE 01</div>
-      <h3 class="svc-ttl">アカウント設計</h3>
-      <p class="svc-desc">コンセプト・ターゲット・インサイトを設定し、発信の軸を固めます。</p>
-      <p class="svc-result">「何を投稿すればいいかわからない」がなくなる</p>
+      <div class="svc-card-top">
+        <div class="svc-num-wrap">
+          <span class="svc-num-bar"></span>
+          <span class="svc-num">01</span>
+        </div>
+        <div class="svc-icon">⚙️</div>
+      </div>
+      <h3 class="svc-ttl">アカウント初期設計</h3>
+      <p class="svc-desc">どんな目的で運用するかをヒアリングし、アカウントの土台を固めます。ここをしっかり作ることで、その後の発信がすべてブレなくなります。</p>
+      <ul class="svc-checks">
+        <li>コンセプト・ターゲット設定</li>
+        <li>競合アカウントのリサーチ</li>
+        <li>プロフィール文・アイコン最適化</li>
+        <li>固定ハッシュタグの方向性</li>
+      </ul>
+      <p class="svc-collect">「何を投稿すればいいかわからない」がなくなる</p>
     </div>
+
     <div class="svc-card js-fade d1">
-      <div class="svc-tag">SERVICE 02</div>
-      <h3 class="svc-ttl">撮影サポート</h3>
-      <p class="svc-desc">見せ方・画角・構成の提案、または現場での撮影を行います。</p>
-      <p class="svc-result">「撮り方がわからない」の不安が消える</p>
+      <div class="svc-card-top">
+        <div class="svc-num-wrap">
+          <span class="svc-num-bar"></span>
+          <span class="svc-num">02</span>
+        </div>
+        <div class="svc-icon">💡</div>
+      </div>
+      <h3 class="svc-ttl">企画・コンテンツ設計</h3>
+      <p class="svc-desc">「バズる」ではなく「届く」コンテンツを設計します。リール企画・台本作成・投稿スケジュール管理まで一貫して担当します。</p>
+      <ul class="svc-checks">
+        <li>月間コンテンツ企画</li>
+        <li>リール台本作成</li>
+        <li>投稿スケジュール管理</li>
+        <li>集客導線の設計</li>
+      </ul>
+      <p class="svc-collect">発信の迷いがなくなり、時間が生まれる</p>
     </div>
+
     <div class="svc-card js-fade d2">
-      <div class="svc-tag">SERVICE 03</div>
-      <h3 class="svc-ttl">動画編集</h3>
-      <p class="svc-desc">企画選定から台本作成・編集まで一貫して対応。</p>
-      <p class="svc-result">編集に追われる時間から解放される</p>
+      <div class="svc-card-top">
+        <div class="svc-num-wrap">
+          <span class="svc-num-bar"></span>
+          <span class="svc-num">03</span>
+        </div>
+        <div class="svc-icon">🎬</div>
+      </div>
+      <h3 class="svc-ttl">撮影サポート・動画編集</h3>
+      <p class="svc-desc">画角・構成・見せ方の提案から、リール動画の編集まで対応。「動画を作ってもらうだけ」ではなく、見た人が行動したくなる動画を一緒につくります。</p>
+      <ul class="svc-checks">
+        <li>撮影ディレクション</li>
+        <li>リール・ストーリーズ編集</li>
+        <li>テロップ・BGM・エフェクト</li>
+        <li>サムネイル作成</li>
+      </ul>
+      <p class="svc-collect">動画が〝集客装置〟に変わる</p>
     </div>
+
     <div class="svc-card js-fade d3">
-      <div class="svc-tag">SERVICE 04</div>
-      <h3 class="svc-ttl">運用・改善</h3>
-      <p class="svc-desc">数値分析・改善提案・投稿管理・導線設計・レポート作成・定期MTG</p>
-      <p class="svc-result">やるほど成果が上がる"仕組み"が回り始める</p>
+      <div class="svc-card-top">
+        <div class="svc-num-wrap">
+          <span class="svc-num-bar"></span>
+          <span class="svc-num">04</span>
+        </div>
+        <div class="svc-icon">📊</div>
+      </div>
+      <h3 class="svc-ttl">インサイト分析・改善</h3>
+      <p class="svc-desc">1ヶ月ごとにアカウントの数値を分析し、次月の改善策を提案します。「なんとなく投稿」ではなく、データに基づいた運用でどんどん精度が上がっていきます。</p>
+      <ul class="svc-checks">
+        <li>月次レポート作成</li>
+        <li>定期MTGによる振り返り</li>
+        <li>投稿改善の提案</li>
+        <li>次月プランの設計</li>
+      </ul>
+      <p class="svc-collect">やるほど成果が上がる仕組みが回り始める</p>
     </div>
+
   </div>
   <div class="svc-footer js-fade">
-    すべてを一貫して設計することで、<strong>発信の迷いがなくなり、時間が生まれ、集客につながる</strong>状態をつくります。<br>
-    ヒアリングの上、あなたに必要なサポートだけをご提案します。
+    すべてをまるごとお任せいただけます。<br>
+    <strong>「何から始めればいいかわからない」という方も、ヒアリングから丁寧にサポートします。</strong>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="flow">
+  <div class="sec-header">
+    <span class="sec-label js-fade">How to Start</span>
+    <h2 class="sec-ttl js-fade d1">開始までの流れ</h2>
+  </div>
+  <div class="flow-steps">
+    <div class="flow-step js-fade">
+      <div class="flow-step-circle">01</div>
+      <div>
+        <p class="flow-step-ttl">DMでご連絡</p>
+        <p class="flow-step-txt">Instagramの<br>DMからお気軽に</p>
+      </div>
+    </div>
+    <div class="flow-step js-fade d1">
+      <div class="flow-step-circle">02</div>
+      <div>
+        <p class="flow-step-ttl">無料ヒアリング</p>
+        <p class="flow-step-txt">現状・目標・お悩みを<br>オンラインでお聞きします</p>
+      </div>
+    </div>
+    <div class="flow-step js-fade d2">
+      <div class="flow-step-circle">03</div>
+      <div>
+        <p class="flow-step-ttl">プランご提案</p>
+        <p class="flow-step-txt">あなたに必要な<br>内容だけをご提案</p>
+      </div>
+    </div>
+    <div class="flow-step js-fade d3">
+      <div class="flow-step-circle">04</div>
+      <div>
+        <p class="flow-step-ttl">ご契約・開始</p>
+        <p class="flow-step-txt">最短1週間で<br>運用スタート</p>
+      </div>
+    </div>
   </div>
 </section>
 
