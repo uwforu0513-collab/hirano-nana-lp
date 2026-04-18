@@ -288,15 +288,15 @@
     /* ===== REELS MOCKUP ===== */
     .reels {
       padding: 8rem 7vw;
-      background: linear-gradient(135deg, #1a0533 0%, #2d0a4e 30%, #1a1a2e 60%, #0d0d1a 100%);
+      background: var(--bg-dark);
       overflow: hidden;
       position: relative;
     }
     .reels::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 20% 50%, rgba(196,137,90,.18) 0%, transparent 60%),
-                  radial-gradient(ellipse at 80% 50%, rgba(130,80,200,.18) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 15% 60%, rgba(196,137,90,.12) 0%, transparent 55%),
+                  radial-gradient(ellipse at 85% 40%, rgba(196,137,90,.08) 0%, transparent 55%);
       pointer-events: none;
     }
     .reels .sec-label { color: var(--accent); }
@@ -816,63 +816,6 @@
   </div>
 </section>
 
-<!-- ============ PROBLEMS ============ -->
-<section class="problems">
-  <div class="problems-top">
-    <div class="problems-big-q js-fade">Q.</div>
-    <div class="problems-top-text">
-      <span class="sec-label js-fade d1">Your Problem</span>
-      <h2 class="sec-ttl js-fade d2">こんなお悩み、<br>ありませんか？</h2>
-    </div>
-  </div>
-  <div class="prob-grid">
-    <div class="prob-card js-fade">
-      <div class="prob-num">01</div>
-      <p class="prob-ttl">毎日がんばって投稿しているのに、<br>反応がない。</p>
-      <p class="prob-sub">いいねもフォローも伸びず、「このまま続けて意味あるのかな…」と不安になる。そもそも"効果的な運用"って、何をすればいいの？</p>
-    </div>
-    <div class="prob-card js-fade d1">
-      <div class="prob-num">02</div>
-      <p class="prob-ttl">動画が大事なのはわかっている。<br>でも手が回らない。</p>
-      <p class="prob-sub">企画、撮影、編集、投稿…やることが多すぎて、「何から手をつければいいかわからない」まま時間だけが過ぎていく。</p>
-    </div>
-    <div class="prob-card js-fade d2">
-      <div class="prob-num">03</div>
-      <p class="prob-ttl">せっかく発信しても、<br>競合に埋もれてしまう。</p>
-      <p class="prob-sub">似たような投稿がたくさんある中で、「私だから選ばれる理由」をどう作ればいいのかわからない。</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BENEFITS ============ -->
-<section class="benefits">
-  <div class="sec-header">
-    <span class="sec-label js-fade">Solution</span>
-    <h2 class="sec-ttl js-fade d1">もし、あなたのInstagramが<br><em>こう変わったら——</em></h2>
-  </div>
-  <div class="benefit-grid">
-    <div class="benefit-card js-fade">
-      <div class="benefit-n">01</div>
-      <h3 class="benefit-ttl">届く相手が明確になる</h3>
-      <p class="benefit-desc">「なんとなく投稿」が終わり、"ちゃんと刺さる発信"に変わる。「この人のこと言ってる」「わかる」と思ってもらえる投稿が増えていく。</p>
-    </div>
-    <div class="benefit-card js-fade d1">
-      <div class="benefit-n">02</div>
-      <h3 class="benefit-ttl">動画が〝集客装置〟になる</h3>
-      <p class="benefit-desc">バズ狙いではなく、目的を持ったコンテンツとして機能する。見た人が「気になる」→「フォローする」→「申し込む」の流れが整う。</p>
-    </div>
-    <div class="benefit-card js-fade d2">
-      <div class="benefit-n">03</div>
-      <h3 class="benefit-ttl">投稿するたびに<br>〝伸びる確率〟が上がる</h3>
-      <p class="benefit-desc">数値分析 → 改善のサイクルが回ることで、やればやるほど成果につながる状態になる。</p>
-    </div>
-  </div>
-  <div class="benefit-sum js-fade">
-    SNSが「がんばるもの」から<strong>「働いてくれるもの」</strong>に変わり、<br>
-    <strong>集客と売上が安定する仕組み</strong>ができあがります。
-  </div>
-</section>
-
 <!-- ============ REELS MOCKUP ============ -->
 <section class="reels">
   <div class="sec-header">
@@ -1027,6 +970,63 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ============ PROBLEMS ============ -->
+<section class="problems">
+  <div class="problems-top">
+    <div class="problems-big-q js-fade">Q.</div>
+    <div class="problems-top-text">
+      <span class="sec-label js-fade d1">Your Problem</span>
+      <h2 class="sec-ttl js-fade d2">こんなお悩み、<br>ありませんか？</h2>
+    </div>
+  </div>
+  <div class="prob-grid">
+    <div class="prob-card js-fade">
+      <div class="prob-num">01</div>
+      <p class="prob-ttl">毎日がんばって投稿しているのに、<br>反応がない。</p>
+      <p class="prob-sub">いいねもフォローも伸びず、「このまま続けて意味あるのかな…」と不安になる。そもそも"効果的な運用"って、何をすればいいの？</p>
+    </div>
+    <div class="prob-card js-fade d1">
+      <div class="prob-num">02</div>
+      <p class="prob-ttl">動画が大事なのはわかっている。<br>でも手が回らない。</p>
+      <p class="prob-sub">企画、撮影、編集、投稿…やることが多すぎて、「何から手をつければいいかわからない」まま時間だけが過ぎていく。</p>
+    </div>
+    <div class="prob-card js-fade d2">
+      <div class="prob-num">03</div>
+      <p class="prob-ttl">せっかく発信しても、<br>競合に埋もれてしまう。</p>
+      <p class="prob-sub">似たような投稿がたくさんある中で、「私だから選ばれる理由」をどう作ればいいのかわからない。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="benefits">
+  <div class="sec-header">
+    <span class="sec-label js-fade">Solution</span>
+    <h2 class="sec-ttl js-fade d1">もし、あなたのInstagramが<br><em>こう変わったら——</em></h2>
+  </div>
+  <div class="benefit-grid">
+    <div class="benefit-card js-fade">
+      <div class="benefit-n">01</div>
+      <h3 class="benefit-ttl">届く相手が明確になる</h3>
+      <p class="benefit-desc">「なんとなく投稿」が終わり、"ちゃんと刺さる発信"に変わる。「この人のこと言ってる」「わかる」と思ってもらえる投稿が増えていく。</p>
+    </div>
+    <div class="benefit-card js-fade d1">
+      <div class="benefit-n">02</div>
+      <h3 class="benefit-ttl">動画が〝集客装置〟になる</h3>
+      <p class="benefit-desc">バズ狙いではなく、目的を持ったコンテンツとして機能する。見た人が「気になる」→「フォローする」→「申し込む」の流れが整う。</p>
+    </div>
+    <div class="benefit-card js-fade d2">
+      <div class="benefit-n">03</div>
+      <h3 class="benefit-ttl">投稿するたびに<br>〝伸びる確率〟が上がる</h3>
+      <p class="benefit-desc">数値分析 → 改善のサイクルが回ることで、やればやるほど成果につながる状態になる。</p>
+    </div>
+  </div>
+  <div class="benefit-sum js-fade">
+    SNSが「がんばるもの」から<strong>「働いてくれるもの」</strong>に変わり、<br>
+    <strong>集客と売上が安定する仕組み</strong>ができあがります。
   </div>
 </section>
 
