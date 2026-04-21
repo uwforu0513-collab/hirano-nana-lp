@@ -1121,18 +1121,59 @@
       100% { transform: translateX(-50%); }
     }
     .voice-card {
+      position: relative;
       flex-shrink: 0;
-      width: clamp(260px, 32vw, 340px);
-      background: var(--bg-section);
-      border: 1px solid var(--border);
-      overflow: hidden;
+      width: clamp(280px, 32vw, 360px);
+      min-height: 280px;
+      background: #fff;
+      border: 1px solid rgba(234,230,223,.9);
+      border-radius: 8px;
+      padding: 2.4rem 2rem 1.8rem;
+      box-shadow: 0 8px 28px rgba(80,60,30,.05);
       transition: transform .3s, box-shadow .3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .voice-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.08); }
-    .voice-card img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .voice-card:hover { transform: translateY(-4px); box-shadow: 0 14px 38px rgba(80,60,30,.1); }
+    .voice-card::before {
+      content: "\201C";
+      position: absolute;
+      top: .4rem;
+      left: 1.2rem;
+      font-family: var(--font-display);
+      font-size: 4.2rem;
+      line-height: 1;
+      color: #C9A96E;
+      opacity: .6;
+    }
+    .voice-quote {
+      position: relative;
+      font-size: .92rem;
+      line-height: 2;
+      letter-spacing: .04em;
+      color: var(--text);
+      margin: 0 0 1.4rem;
+    }
+    .voice-meta {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(234,230,223,.9);
+    }
+    .voice-meta-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #C9A96E;
+    }
+    .voice-meta-txt {
+      font-family: var(--font-en);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-style: italic;
     }
     .voices-hint {
       text-align: center;
@@ -1950,31 +1991,103 @@
   <div class="voices-marquee">
     <div class="voices-track">
       <!-- Set 1 -->
-      <div class="voice-card"><img src="images/voice1.png" alt="クライアントの声1"></div>
-      <div class="voice-card"><img src="images/voice2.png" alt="クライアントの声2"></div>
-      <div class="voice-card"><img src="images/voice3.png" alt="クライアントの声3"></div>
-      <div class="voice-card"><img src="images/voice4.png" alt="クライアントの声4"></div>
-      <div class="voice-card"><img src="images/voice5.png" alt="クライアントの声5"></div>
-      <div class="voice-card"><img src="images/voice6.png" alt="クライアントの声6"></div>
-      <div class="voice-card"><img src="images/voice7.png" alt="クライアントの声7"></div>
-      <div class="voice-card"><img src="images/voice8.png" alt="クライアントの声8"></div>
-      <div class="voice-card"><img src="images/voice9.png" alt="クライアントの声9"></div>
-      <div class="voice-card"><img src="images/voice10.png" alt="クライアントの声10"></div>
-      <div class="voice-card"><img src="images/voice11.png" alt="クライアントの声11"></div>
-      <div class="voice-card"><img src="images/voice12.png" alt="クライアントの声12"></div>
+      <div class="voice-card">
+        <p class="voice-quote">ここまでしてもらえるなら本当に引く手あまただと思う。若いし、頭の回転もすばらしいし、なにより根性が本当に半端ない。楽しみでしかないな〜。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 01</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">ななちゃんの動画はいつも温かく、人柄が現れているよね。すごい好き。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 02</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">プロモリール、どちゃくそかっこいい！言葉もすごく汲み取ってるー！！</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 03</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">大変な中、もの凄いスピード感で仕上げてくれてありがとう。クライアント様めちゃくちゃ喜んでいましたよ！</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 04</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">色々撮影していただけるのは本当にありがたいです。ぜひぜひ、これからも一緒に。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 05</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">動画ありがとうございます！リールにめっちゃ使える、ありがたすぎます〜。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 06</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">那奈さんすご〜い！めっちゃいいです。お二人にもみてもらいますね〜。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 07</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">みなさんのサポートがなければ、早期の成約は絶対無理だったな、と感じています。引き続き感謝を持ちながら頑張っていきます！</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 08</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">ほんと、めっちゃかっこいい！文章もすごく短く、私の意図を伝えてくださって、すごいです！このままで変更なしです。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 09</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">素晴らしい編集、ありがとうございます！めっちゃわかりやすいし、切り取りもとっても自然でありがたいです。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 10</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">お忙しいところムリをお願いしたにもかかわらず、ステキな動画を作成していただきホントに感謝です。ありがとうございました。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 11</span></div>
+      </div>
+      <div class="voice-card">
+        <p class="voice-quote">動画はななさんに、と思っているので、その旨を伝えたく連絡しました。今年もお世話になりました。引き続き、よろしくお願いします。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 12</span></div>
+      </div>
       <!-- Set 2 (for seamless loop) -->
-      <div class="voice-card" aria-hidden="true"><img src="images/voice1.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice2.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice3.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice4.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice5.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice6.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice7.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice8.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice9.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice10.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice11.png" alt=""></div>
-      <div class="voice-card" aria-hidden="true"><img src="images/voice12.png" alt=""></div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">ここまでしてもらえるなら本当に引く手あまただと思う。若いし、頭の回転もすばらしいし、なにより根性が本当に半端ない。楽しみでしかないな〜。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 01</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">ななちゃんの動画はいつも温かく、人柄が現れているよね。すごい好き。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 02</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">プロモリール、どちゃくそかっこいい！言葉もすごく汲み取ってるー！！</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 03</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">大変な中、もの凄いスピード感で仕上げてくれてありがとう。クライアント様めちゃくちゃ喜んでいましたよ！</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 04</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">色々撮影していただけるのは本当にありがたいです。ぜひぜひ、これからも一緒に。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 05</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">動画ありがとうございます！リールにめっちゃ使える、ありがたすぎます〜。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 06</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">那奈さんすご〜い！めっちゃいいです。お二人にもみてもらいますね〜。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 07</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">みなさんのサポートがなければ、早期の成約は絶対無理だったな、と感じています。引き続き感謝を持ちながら頑張っていきます！</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 08</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">ほんと、めっちゃかっこいい！文章もすごく短く、私の意図を伝えてくださって、すごいです！このままで変更なしです。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 09</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">素晴らしい編集、ありがとうございます！めっちゃわかりやすいし、切り取りもとっても自然でありがたいです。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 10</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">お忙しいところムリをお願いしたにもかかわらず、ステキな動画を作成していただきホントに感謝です。ありがとうございました。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 11</span></div>
+      </div>
+      <div class="voice-card" aria-hidden="true">
+        <p class="voice-quote">動画はななさんに、と思っているので、その旨を伝えたく連絡しました。今年もお世話になりました。引き続き、よろしくお願いします。</p>
+        <div class="voice-meta"><span class="voice-meta-dot"></span><span class="voice-meta-txt">Client Voice / 12</span></div>
+      </div>
     </div>
   </div>
   <p class="voices-hint js-fade">All Voices — Auto Scroll</p>
