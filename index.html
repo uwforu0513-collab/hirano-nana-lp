@@ -88,23 +88,66 @@
       margin-top: 2px;
     }
     .hd-cta {
+      position: relative;
       display: inline-block;
       padding: .85rem 1.8rem;
-      background: #E8843C;
+      background: linear-gradient(135deg, #FFB347 0%, #FF9A3C 35%, #F07A2A 65%, #FFB347 100%);
+      background-size: 200% 200%;
       color: #fff;
       font-size: .78rem;
       font-weight: 700;
       letter-spacing: .18em;
-      border: 1px solid #E8843C;
+      border: 1px solid rgba(255,170,80,.9);
       border-radius: 4px;
-      box-shadow: 0 6px 20px rgba(232,132,60,.35);
-      transition: all .3s;
+      box-shadow:
+        0 6px 20px rgba(232,132,60,.4),
+        0 0 14px rgba(255,180,90,.35),
+        inset 0 1px 0 rgba(255,255,255,.45);
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      animation: ctaGlow 3.6s ease-in-out infinite;
+    }
+    .hd-cta::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -60%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg,
+        transparent 0%,
+        rgba(255,255,255,.15) 40%,
+        rgba(255,255,255,.75) 50%,
+        rgba(255,255,255,.15) 60%,
+        transparent 100%);
+      transform: skewX(-22deg);
+      animation: ctaSheen 3.6s ease-in-out infinite;
+      pointer-events: none;
     }
     .hd-cta:hover {
-      background: #D56F26;
-      border-color: #D56F26;
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(232,132,60,.45);
+      box-shadow:
+        0 10px 28px rgba(232,132,60,.5),
+        0 0 22px rgba(255,180,90,.55),
+        inset 0 1px 0 rgba(255,255,255,.55);
+    }
+    @keyframes ctaGlow {
+      0%, 100% {
+        background-position: 0% 50%;
+        box-shadow:
+          0 6px 20px rgba(232,132,60,.4),
+          0 0 14px rgba(255,180,90,.35),
+          inset 0 1px 0 rgba(255,255,255,.45);
+      }
+      50% {
+        background-position: 100% 50%;
+        box-shadow:
+          0 8px 24px rgba(232,132,60,.5),
+          0 0 22px rgba(255,190,100,.55),
+          inset 0 1px 0 rgba(255,255,255,.6);
+      }
+    }
+    @keyframes ctaSheen {
+      0% { left: -60%; }
+      60%, 100% { left: 140%; }
     }
 
     /* ===== HERO ===== */
@@ -1335,8 +1378,8 @@
 
 <!-- ============ HEADER ============ -->
 <header class="hd" id="hd">
-  <div class="hd-logo">Nana Hirano</div>
   <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="hd-cta">無料相談はこちら</a>
+  <div class="hd-logo">Nana Hirano</div>
 </header>
 
 <!-- ============ HERO ============ -->
@@ -1734,7 +1777,7 @@
     <div class="plan-card featured js-fade">
       <div class="plan-badge">＼ 1番おすすめ ／</div>
       <div class="plan-label">Plan A</div>
-      <h3 class="plan-name">フルサポートプラン</h3>
+      <h3 class="plan-name">フルサポート伴走プラン</h3>
       <p class="plan-for">設計から運用まで、まるごとお任せしたい方</p>
       <div class="plan-price-wrap">
         <div class="plan-price-ask">お問い合わせください</div>
@@ -1782,7 +1825,7 @@
     <div class="plan-card js-fade d2">
       <div class="plan-label">Plan C</div>
       <h3 class="plan-name">撮影・編集プラン</h3>
-      <p class="plan-for">イベントやスポットの企画で、当日の撮影と動画編集だけをお願いしたい方向け。</p>
+      <p class="plan-for">イベントやスポットの企画で、当日の撮影と動画編集をお願いしたい方向け。</p>
       <div class="plan-price-wrap">
         <div class="plan-price-ask">お問い合わせください</div>
         <span class="plan-price-unit">PROJECT / SPOT</span>
