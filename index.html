@@ -91,63 +91,46 @@
       position: relative;
       display: inline-block;
       padding: .85rem 1.8rem;
-      background: linear-gradient(135deg, #FFB347 0%, #FF9A3C 35%, #F07A2A 65%, #FFB347 100%);
-      background-size: 200% 200%;
+      background:
+        linear-gradient(135deg,
+          #FFD27A 0%,
+          #FFB347 22%,
+          #F39224 50%,
+          #FFB347 78%,
+          #FFE0A0 100%);
       color: #fff;
       font-size: .78rem;
       font-weight: 700;
       letter-spacing: .18em;
-      border: 1px solid rgba(255,170,80,.9);
+      border: 1px solid rgba(255,200,120,.9);
       border-radius: 4px;
       box-shadow:
         0 6px 20px rgba(232,132,60,.4),
-        0 0 14px rgba(255,180,90,.35),
-        inset 0 1px 0 rgba(255,255,255,.45);
+        0 0 18px rgba(255,200,120,.45),
+        inset 0 1px 0 rgba(255,255,255,.6),
+        inset 0 -1px 0 rgba(180,90,20,.18);
+      text-shadow: 0 1px 1px rgba(160,80,10,.25);
       overflow: hidden;
       transition: transform .3s, box-shadow .3s;
-      animation: ctaGlow 3.6s ease-in-out infinite;
     }
     .hd-cta::before {
       content: "";
       position: absolute;
-      top: 0; left: -60%;
-      width: 50%; height: 100%;
-      background: linear-gradient(120deg,
-        transparent 0%,
-        rgba(255,255,255,.15) 40%,
-        rgba(255,255,255,.75) 50%,
-        rgba(255,255,255,.15) 60%,
-        transparent 100%);
-      transform: skewX(-22deg);
-      animation: ctaSheen 3.6s ease-in-out infinite;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,.45) 0%,
+        rgba(255,255,255,.12) 45%,
+        rgba(255,255,255,0) 55%,
+        rgba(255,220,160,.18) 100%);
       pointer-events: none;
     }
     .hd-cta:hover {
       transform: translateY(-2px);
       box-shadow:
         0 10px 28px rgba(232,132,60,.5),
-        0 0 22px rgba(255,180,90,.55),
-        inset 0 1px 0 rgba(255,255,255,.55);
-    }
-    @keyframes ctaGlow {
-      0%, 100% {
-        background-position: 0% 50%;
-        box-shadow:
-          0 6px 20px rgba(232,132,60,.4),
-          0 0 14px rgba(255,180,90,.35),
-          inset 0 1px 0 rgba(255,255,255,.45);
-      }
-      50% {
-        background-position: 100% 50%;
-        box-shadow:
-          0 8px 24px rgba(232,132,60,.5),
-          0 0 22px rgba(255,190,100,.55),
-          inset 0 1px 0 rgba(255,255,255,.6);
-      }
-    }
-    @keyframes ctaSheen {
-      0% { left: -60%; }
-      60%, 100% { left: 140%; }
+        0 0 26px rgba(255,210,130,.6),
+        inset 0 1px 0 rgba(255,255,255,.7),
+        inset 0 -1px 0 rgba(180,90,20,.2);
     }
 
     /* ===== HERO ===== */
@@ -1249,8 +1232,74 @@
       letter-spacing: .15em;
     }
 
+    /* ===== WITH ME ===== */
+    .withme { padding: 10rem 7vw 6rem; background: var(--bg); text-align: center; }
+    .withme-inner { max-width: 840px; margin: 0 auto; }
+    .withme-ttl {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.45;
+      letter-spacing: .06em;
+      margin: 1.2rem 0 1.8rem;
+    }
+    .withme-lead {
+      font-size: .95rem;
+      color: var(--text-muted);
+      line-height: 2.1;
+      letter-spacing: .08em;
+      margin-bottom: 4rem;
+    }
+    .withme-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1.8rem;
+      text-align: left;
+    }
+    .withme-list li {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 1.4rem;
+      align-items: start;
+      padding: 1.8rem 2rem;
+      background: #fff;
+      border: 1px solid rgba(234,230,223,.9);
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(80,60,30,.05);
+    }
+    .withme-num {
+      font-family: var(--font-en);
+      font-size: 1.6rem;
+      font-style: italic;
+      letter-spacing: .05em;
+      color: #C9A96E;
+      padding-top: 2px;
+    }
+    .withme-h {
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: .05em;
+      line-height: 1.7;
+      margin: 0 0 .6rem;
+      color: var(--text);
+    }
+    .withme-t {
+      font-size: .88rem;
+      color: var(--text-muted);
+      line-height: 2;
+      letter-spacing: .05em;
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .withme { padding: 5.5rem 1.5rem 3rem; }
+      .withme-list li { grid-template-columns: 54px 1fr; padding: 1.4rem 1.3rem; }
+      .withme-num { font-size: 1.3rem; }
+    }
+
     /* ===== FINAL CTA ===== */
-    .final { padding: 11rem 7vw; background: var(--bg-section); text-align: center; }
+    .final { padding: 8rem 7vw 11rem; background: var(--bg-section); text-align: center; }
     .final-inner { max-width: 680px; margin: 0 auto; }
     .final-ttl {
       font-family: var(--font-display);
@@ -1378,8 +1427,8 @@
 
 <!-- ============ HEADER ============ -->
 <header class="hd" id="hd">
+  <div class="hd-logo">Hirano Nana</div>
   <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="hd-cta">無料相談はこちら</a>
-  <div class="hd-logo">Nana Hirano</div>
 </header>
 
 <!-- ============ HERO ============ -->
@@ -1950,7 +1999,7 @@
         <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="faq-ans" role="region">
-        <div class="faq-ans-in">問題ありません。撮影からサポートしているため、「何を撮ればいいかわからない」という状態からでも進めていけます。</div>
+        <div class="faq-ans-in">撮影からサポートしていますので、素材がなくても問題ありません。「何を撮ればいいかわからない」という方には、出張して一緒に撮影したり、撮り方のアドバイスをその場でお伝えしたりしています。カメラや編集に不安がある方でも、安心してお任せください。</div>
       </div>
     </div>
     <div class="faq-item js-fade d2">
@@ -2001,16 +2050,55 @@
   </div>
 </section>
 
+<!-- ============ WITH ME ============ -->
+<section class="withme">
+  <div class="withme-inner">
+    <span class="sec-label js-fade">With Me</span>
+    <h2 class="withme-ttl js-fade d1">私に頼むと、こうなります。</h2>
+    <p class="withme-lead js-fade d2">「発信に時間を取られる毎日」から、<br>「自分の言葉で、自分のファンと繋がる毎日」へ。</p>
+    <ul class="withme-list">
+      <li class="js-fade d2">
+        <span class="withme-num">01</span>
+        <div>
+          <p class="withme-h">"なんとなく投稿"が終わる。</p>
+          <p class="withme-t">毎回ネタに悩む時間がなくなり、届けたい人に届く設計された発信へ変わります。</p>
+        </div>
+      </li>
+      <li class="js-fade d3">
+        <span class="withme-num">02</span>
+        <div>
+          <p class="withme-h">SNSがまた、楽しくなる。</p>
+          <p class="withme-t">数字に一喜一憂する日々から解放されて、「この人のために発信したい」と思える相手に出会えます。</p>
+        </div>
+      </li>
+      <li class="js-fade d4">
+        <span class="withme-num">03</span>
+        <div>
+          <p class="withme-h">"売り込まなくても選ばれる"が始まる。</p>
+          <p class="withme-t">フォロワー数ではなく、あなたのサービスを本当に必要としている人が自然と集まる導線ができあがります。</p>
+        </div>
+      </li>
+      <li class="js-fade d5">
+        <span class="withme-num">04</span>
+        <div>
+          <p class="withme-h">一人じゃない、が心強い。</p>
+          <p class="withme-t">撮影も編集も戦略も、いつでも相談できる伴走者がそばに。迷ったらすぐ聞ける、それだけで発信の質が変わります。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ FINAL CTA ============ -->
 <section class="final">
   <div class="final-inner">
-    <h2 class="final-ttl js-fade">「このままでいいのかな」と思った今が、<br>変わるタイミングです。</h2>
-    <p class="final-sub js-fade d1">まずはあなたのお悩みを聞かせてください。無理な勧誘は一切ありません。</p>
+    <h2 class="final-ttl js-fade">迷っている時間も、<br>あなたの発信は進んでいる。</h2>
+    <p class="final-sub js-fade d1">「もう少し考えてから」と後回しにしてきた方こそ、<br>まずは話すだけでいい。DMを開くその一歩が、景色を変えます。</p>
     <a href="https://www.instagram.com/yours.7ms?igsh=bGE1dXJzMzdpenh5&utm_source=qr" target="_blank" rel="noopener" class="final-btn js-fade d2">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
       InstagramのDMで無料相談する
     </a>
-    <p class="final-note js-fade d3">※ご質問だけでもお気軽にどうぞ</p>
+    <p class="final-note js-fade d3">※ご質問だけでもお気軽にどうぞ／無理な勧誘は一切ありません</p>
   </div>
 </section>
 
