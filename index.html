@@ -89,16 +89,23 @@
     }
     .hd-cta {
       display: inline-block;
-      padding: .65rem 1.6rem;
-      background: transparent;
-      color: var(--text);
-      font-size: .68rem;
-      font-weight: 400;
-      letter-spacing: .25em;
-      border: 1px solid var(--text);
-      transition: background .3s, color .3s;
+      padding: .85rem 1.8rem;
+      background: #E8843C;
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      border: 1px solid #E8843C;
+      border-radius: 4px;
+      box-shadow: 0 6px 20px rgba(232,132,60,.35);
+      transition: all .3s;
     }
-    .hd-cta:hover { background: var(--text); color: var(--white); }
+    .hd-cta:hover {
+      background: #D56F26;
+      border-color: #D56F26;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(232,132,60,.45);
+    }
 
     /* ===== HERO ===== */
     .hero {
@@ -143,11 +150,12 @@
     }
     .hero-h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      font-size: clamp(1.9rem, 4vw, 3.4rem);
       font-weight: 400;
-      line-height: 1.15;
+      line-height: 1.35;
       margin-bottom: 2.4rem;
       letter-spacing: .01em;
+      white-space: normal;
     }
     .hero-h1 .jp {
       display: block;
@@ -327,44 +335,54 @@
     /* ===== BENEFITS ===== */
     .benefits { padding: 10rem 7vw; background: var(--bg); }
     .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 0;
       margin-bottom: 4rem;
-      max-width: 1100px;
+      max-width: 860px;
       margin-left: auto;
       margin-right: auto;
     }
     .benefit-card {
       background: transparent;
-      padding: 2rem 2.4rem;
-      text-align: center;
+      padding: 3rem 0;
+      text-align: left;
       transition: none;
-      border-right: 1px solid var(--border);
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 3rem;
+      align-items: start;
     }
-    .benefit-card:last-child { border-right: none; }
+    .benefit-card:first-child { border-top: 1px solid var(--border); }
     .benefit-card:hover {
       transform: none;
       box-shadow: none;
     }
     .benefit-n {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 3rem;
       font-weight: 400;
       color: var(--text);
       line-height: 1;
-      margin-bottom: 1.8rem;
-      letter-spacing: .15em;
+      margin-bottom: 0;
+      letter-spacing: .1em;
     }
     .benefit-ttl {
       font-family: var(--font-display);
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: 400;
-      line-height: 1.55;
-      margin-bottom: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
       letter-spacing: .05em;
     }
-    .benefit-desc { font-size: .82rem; color: var(--text-muted); line-height: 2.1; letter-spacing: .04em; }
+    .benefit-desc { font-size: .88rem; color: var(--text-muted); line-height: 2.1; letter-spacing: .04em; }
+    @media (max-width: 600px) {
+      .benefit-card { grid-template-columns: 1fr; gap: 1.2rem; padding: 2.4rem 0; }
+      .benefit-n { font-size: 2.2rem; }
+      .benefit-ttl { font-size: 1.2rem; }
+    }
     .benefit-sum {
       background: transparent;
       color: var(--text);
@@ -1278,7 +1296,6 @@
       .prob-grid { grid-template-columns: 1fr; gap: 1px; }
 
       .benefits { padding: 5rem 1.5rem; }
-      .benefit-grid { grid-template-columns: 1fr; }
 
       .services { padding: 5rem 1.5rem; }
       .svc-grid { grid-template-columns: 1fr; }
@@ -1302,7 +1319,7 @@
 
     @media (max-width: 600px) {
       .hd { padding: .75rem 1.2rem; }
-      .hero-h1 { font-size: 1.75rem; }
+      .hero-h1 { font-size: 1.55rem; line-height: 1.5; }
     }
   </style>
 </head>
