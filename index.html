@@ -235,7 +235,7 @@
     .hero-right video {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center center;
+      object-position: center 18%;
       display: block;
       animation: heroFadeZoom 2.4s cubic-bezier(.22,1,.36,1) .2s both;
     }
@@ -361,7 +361,28 @@
     .prob-sub { font-size: .82rem; color: var(--text-muted); line-height: 2.1; letter-spacing: .04em; }
 
     /* ===== BENEFITS ===== */
-    .benefits { padding: 10rem 7vw; background: var(--bg); }
+    .benefits {
+      position: relative;
+      padding: 10rem 7vw;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .benefits::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('images/bg-benefits.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: .12;
+      filter: blur(1px);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 80%, transparent 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 80%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .benefits > * { position: relative; z-index: 1; }
     .benefit-grid {
       display: flex;
       flex-direction: column;
@@ -840,10 +861,28 @@
 
     /* ===== PRICING ===== */
     .pricing {
+      position: relative;
       padding: 10rem 7vw;
       background: var(--bg);
       color: var(--text);
+      overflow: hidden;
     }
+    .pricing::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('images/bg-pricing.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: .14;
+      filter: blur(1.5px);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .pricing > * { position: relative; z-index: 1; }
     .pricing .sec-label { color: var(--text); }
     .pricing .sec-ttl { color: var(--text); }
     .pricing .sec-header { text-align: center; }
@@ -1078,12 +1117,27 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    .profile-img-wrap { position: relative; }
+    .profile-img-wrap { position: relative; overflow: hidden; }
     .profile-img-wrap img {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
-      object-position: top;
+      object-position: center 32%;
+      filter: saturate(.85) contrast(.95);
+    }
+    .profile-img-mosaic {
+      position: absolute;
+      left: 2%;
+      bottom: 7%;
+      width: 34%;
+      height: 10%;
+      backdrop-filter: blur(14px) saturate(.6);
+      -webkit-backdrop-filter: blur(14px) saturate(.6);
+      background:
+        repeating-linear-gradient(0deg,  rgba(40,48,80,.55) 0 4px, rgba(70,80,120,.45) 4px 8px),
+        repeating-linear-gradient(90deg, rgba(30,38,70,.25) 0 4px, rgba(60,70,110,.20) 4px 8px);
+      border-radius: 2px;
+      pointer-events: none;
     }
     .profile-img-deco {
       display: none;
@@ -1991,7 +2045,8 @@
 <section class="profile">
   <div class="profile-inner">
     <div class="profile-img-wrap js-fade-img">
-      <img src="images/profile.png" alt="平野那奈">
+      <img src="images/police-main.jpg" alt="警察官時代の装備">
+      <div class="profile-img-mosaic" aria-hidden="true"></div>
       <div class="profile-img-deco"></div>
       <div class="profile-namecard">
         <div class="profile-namecard-name">Nana Hirano</div>
