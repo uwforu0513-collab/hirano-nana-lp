@@ -875,10 +875,10 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      opacity: .14;
-      filter: blur(1.5px);
-      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
-              mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+      opacity: .38;
+      filter: blur(.3px) saturate(1.18) contrast(1.02);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
       pointer-events: none;
       z-index: 0;
     }
@@ -1123,7 +1123,15 @@
       aspect-ratio: 3/4;
       object-fit: cover;
       object-position: center 32%;
-      filter: saturate(.85) contrast(.95);
+      opacity: .68;
+      filter: saturate(.55) contrast(.88) brightness(1.05) blur(.3px);
+      mix-blend-mode: luminosity;
+    }
+    .profile-img-wrap::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(250,248,244,.25) 0%, rgba(250,248,244,.05) 40%, rgba(250,248,244,.25) 100%);
+      pointer-events: none;
     }
     .profile-img-mosaic {
       position: absolute;
@@ -2070,8 +2078,8 @@
           「動画が大事なのはわかるけど、難しくて続かない」
         </div>
         <p>私は<span class="profile-strong">「これだ！」</span>と思いました。これを絶対に仕事にしたいと決めて、ゼロから学び始めました。</p>
-        <p>最初は動画スキルもゼロの状態。けれど学びを進める中で、<span class="profile-strong">動画編集だけでは、十分な結果を還元できないまま、そこで関係が終わってしまう</span>と気づきました。</p>
-        <p>だから私は、アカウント全体に機能を持たせて集客を最大化し、<span class="profile-strong">クライアント様が叶えたい未来まで、まるごと一緒にサポートしたい</span>と考えるようになりました。その手段こそが「SNS運用代行」——この道を選んだ理由です。</p>
+        <p>最初は動画スキルもゼロの状態。けれど学びを進める中で、<span class="profile-strong">十分な結果を還元できないまま、そこで関係が終わってしまう</span>——そんな現状を、私は重く受け止めました。</p>
+        <p>だから私は、単なる動画編集という<span class="profile-strong">一時的な納品物の提供にとどまらず</span>、クライアント様のSNSを通じて、<span class="profile-strong">本当に得たい未来を共に作り上げていくパートナーでありたい</span>と考えるようになりました。その手段こそが「SNS運用代行」——この道を選んだ理由です。</p>
         <p>SNSはただの発信ではなく、<span class="profile-strong">まだ出会えていない人に、価値を届ける“きっかけ”</span>になるもの。私はそう信じています。</p>
         <p>——なぜなら、私自身がSNSでの出会いによって、本当に人生が変わったから。</p>
         <p>だからこそ、クライアント様が大切に磨き上げてきた素晴らしいサービスを、まだ知らない人・今まさに必要としている人のもとへ、<span class="profile-strong">SNSを使って本気で届けていきたい</span>。SNSって、本当にすごい。その力を私自身が誰よりも信じているからこそ、一緒に未来を変えていくアカウントを、あなたと作りたいのです。</p>
