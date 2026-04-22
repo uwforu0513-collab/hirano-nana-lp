@@ -1154,13 +1154,13 @@
       gap: 1.5rem;
       align-self: stretch;
     }
-    /* Badge variant — transparent PNG, enlarged ~2x and allowed to bleed into adjacent text column with a soft radial fade */
+    /* Badge variant — transparent PNG, enlarged ~2x, sits directly below uniform, soft radial fade and page-tinted luminosity */
     .profile-img-wrap--badge {
       width: 160%;
       aspect-ratio: 3/4;
       margin-left: -10%;
       margin-right: 0;
-      margin-top: auto;
+      margin-top: 0;
       background: transparent;
       overflow: visible;
       display: flex;
@@ -1177,9 +1177,9 @@
       aspect-ratio: auto;
       object-fit: contain;
       object-position: center center;
-      opacity: .95;
-      filter: sepia(.12) saturate(.9) contrast(.95) brightness(1.02) blur(2px);
-      mix-blend-mode: normal;
+      opacity: .62;
+      filter: saturate(.5) contrast(.85) brightness(1.08) blur(1.8px);
+      mix-blend-mode: luminosity;
     }
     /* Hide the uniform-specific cream overlay on the badge wrap */
     .profile-img-wrap.profile-img-wrap--badge::after { display: none; }
@@ -1242,7 +1242,7 @@
       inset: 0;
       background-image: url('images/bg-voices.jpg');
       background-size: cover;
-      background-position: center 35%;
+      background-position: center 18%;
       background-repeat: no-repeat;
       opacity: .42;
       filter: blur(1.2px) saturate(1.45) contrast(1.05);
