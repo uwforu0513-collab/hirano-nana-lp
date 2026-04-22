@@ -372,13 +372,13 @@
       position: absolute;
       inset: 0;
       background-image: url('images/bg-benefits.jpg');
-      background-size: cover;
+      background-size: min(380px, 45vw) auto;
       background-position: center center;
       background-repeat: no-repeat;
-      opacity: .12;
-      filter: blur(1px);
-      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 80%, transparent 100%);
-              mask-image: linear-gradient(180deg, transparent 0%, #000 20%, #000 80%, transparent 100%);
+      opacity: .18;
+      filter: blur(2.5px);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 45%, transparent 85%);
+              mask-image: radial-gradient(ellipse at center, #000 45%, transparent 85%);
       pointer-events: none;
       z-index: 0;
     }
@@ -1148,76 +1148,6 @@
       pointer-events: none;
     }
 
-    /* Police ID card — stacked editorial element, face/name/top and 三重県警察 banner all heavily mosaicked */
-    .profile-id-card {
-      position: absolute;
-      top: 4%;
-      right: 4%;
-      width: 34%;
-      aspect-ratio: 9/16;
-      overflow: hidden;
-      border-radius: 3px;
-      box-shadow: 0 18px 40px rgba(30,30,30,.25), 0 3px 10px rgba(30,30,30,.18);
-      transform: rotate(4deg);
-      transform-origin: center center;
-      background: #f6efe6;
-      z-index: 3;
-    }
-    .profile-id-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      aspect-ratio: auto;
-      opacity: 1;
-      filter: saturate(.95) contrast(.95);
-      mix-blend-mode: normal;
-    }
-    /* Primary top mosaic — covers entire ID card portion (face + 巡査長 + name + 第○○号) */
-    .profile-id-mask-top {
-      position: absolute;
-      top: 3%; left: 14%;
-      width: 62%; height: 38%;
-      backdrop-filter: blur(22px) saturate(.5);
-      -webkit-backdrop-filter: blur(22px) saturate(.5);
-      background:
-        repeating-linear-gradient(0deg,  rgba(60,65,95,.55) 0 5px, rgba(95,100,135,.45) 5px 10px),
-        repeating-linear-gradient(90deg, rgba(45,50,80,.30) 0 5px, rgba(80,85,120,.22) 5px 10px),
-        repeating-linear-gradient(45deg, rgba(30,35,60,.18) 0 3px, rgba(120,125,160,.14) 3px 6px);
-      border-radius: 1px;
-      pointer-events: none;
-    }
-    /* Secondary top mosaic — slight offset, extra scrambling so no pixel is legible */
-    .profile-id-mask-top2 {
-      position: absolute;
-      top: 5%; left: 16%;
-      width: 58%; height: 34%;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background:
-        repeating-linear-gradient(20deg, rgba(235,225,210,.35) 0 6px, rgba(80,80,105,.35) 6px 12px),
-        repeating-linear-gradient(110deg, rgba(40,40,65,.25) 0 4px, rgba(180,175,170,.18) 4px 8px);
-      border-radius: 1px;
-      pointer-events: none;
-      mix-blend-mode: multiply;
-    }
-    /* Badge banner mosaic — covers the "三重県警察" ribbon */
-    .profile-id-mask-badge {
-      position: absolute;
-      bottom: 13%; left: 18%;
-      width: 58%; height: 7%;
-      backdrop-filter: blur(10px) saturate(.7);
-      -webkit-backdrop-filter: blur(10px) saturate(.7);
-      background:
-        repeating-linear-gradient(0deg,  rgba(80,55,20,.55) 0 3px, rgba(140,105,55,.45) 3px 6px),
-        repeating-linear-gradient(90deg, rgba(60,40,15,.25) 0 3px, rgba(160,125,70,.20) 3px 6px);
-      border-radius: 1px;
-      pointer-events: none;
-    }
-    @media (max-width: 860px) {
-      .profile-id-card { width: 42%; top: 3%; right: 3%; transform: rotate(3deg); }
-    }
     .profile-img-deco {
       display: none;
     }
@@ -1266,7 +1196,23 @@
     .profile-list li::before { content: '—  '; color: var(--text); }
 
     /* ===== VOICES ===== */
-    .voices { padding: 10rem 7vw; background: var(--bg); color: var(--text); }
+    .voices { position: relative; padding: 10rem 7vw; background: var(--bg); color: var(--text); overflow: hidden; }
+    .voices::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('images/bg-voices.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      background-repeat: no-repeat;
+      opacity: .14;
+      filter: blur(1.8px) saturate(.9);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .voices > * { position: relative; z-index: 1; }
     .voices .sec-label { color: var(--text); }
     .voices .sec-ttl { color: var(--text); }
     .voices-lead {
@@ -2126,12 +2072,6 @@
     <div class="profile-img-wrap js-fade-img">
       <img src="images/police-main.jpg" alt="警察官時代の装備">
       <div class="profile-img-mosaic" aria-hidden="true"></div>
-      <div class="profile-id-card" aria-hidden="true">
-        <img src="images/police-id.jpg" alt="">
-        <div class="profile-id-mask-top"></div>
-        <div class="profile-id-mask-top2"></div>
-        <div class="profile-id-mask-badge"></div>
-      </div>
       <div class="profile-img-deco"></div>
       <div class="profile-namecard">
         <div class="profile-namecard-name">Nana Hirano</div>
@@ -2144,7 +2084,7 @@
       <div class="profile-txt js-fade d2">
         <p>私はこれまで、<span class="profile-strong">警察官</span>として働いてきました。「誰かの役に立ちたい」——その想いひとつで選んだ仕事でした。</p>
         <p>けれど、離婚を経験したとき。昼夜も休日も関係のないこの働き方では、子どもたちと一緒に暮らせない現実に、私は初めて直面しました。そのとき初めて、<span class="profile-strong">「働き方そのもの」</span>を見つめ直すようになりました。</p>
-        <p>そんな中、SNSを通して出会ったのが、起業家のみなさんでした。自分の想いを形にして——<span class="profile-strong">それまでの私の人生には一人もいなかったような、仕事を楽しむかっこいい大人</span>。目の前が一気に開けるような、雷に打たれるような衝撃でした。</p>
+        <p>そんな中、SNSを通して出会ったのは、起業家のみなさんでした。自分の想いを形にして——<span class="profile-strong">それまでの私の人生には一人もいなかったような、仕事を楽しむかっこいい大人</span>。まるで雷に打たれたような、視界ごと開けていく衝撃でした。</p>
         <div class="profile-quote">
           「こんな人たちのようになりたい」<br>
           「この人たちと、一緒に働きたい」
@@ -2155,11 +2095,11 @@
           「動画が大事なのはわかるけど、難しくて続かない」
         </div>
         <p>私は<span class="profile-strong">「これだ！」</span>と思いました。これを絶対に仕事にしたいと決めて、ゼロから学び始めました。</p>
-        <p>最初は動画スキルもゼロの状態。けれど学びを進める中で、<span class="profile-strong">十分な結果を還元できないまま、そこで関係が終わってしまう</span>——そんな現状を、私は重く受け止めました。</p>
+        <p>最初は動画スキルもゼロの状態。けれど学びを進める中で、<span class="profile-strong">動画単体では、クライアント様に十分な結果を還元できていないのではないか</span>——そう感じるようになりました。そんな現状を、私は重く受け止めました。</p>
         <p>だから私は、単なる動画編集という<span class="profile-strong">一時的な納品物の提供にとどまらず</span>、クライアント様のSNSを通じて、<span class="profile-strong">本当に得たい未来を共に作り上げていくパートナーでありたい</span>と考えるようになりました。その手段こそが「SNS運用代行」——この道を選んだ理由です。</p>
         <p>SNSはただの発信ではなく、<span class="profile-strong">まだ出会えていない人に、価値を届ける“きっかけ”</span>になるもの。私はそう信じています。</p>
-        <p>——なぜなら、私自身がSNSでの出会いによって、本当に人生が変わったから。</p>
-        <p>だからこそ、クライアント様が大切に磨き上げてきた素晴らしいサービスを、まだ知らない人・今まさに必要としている人のもとへ、<span class="profile-strong">SNSを使って本気で届けていきたい</span>。SNSって、本当にすごい。その力を私自身が誰よりも信じているからこそ、一緒に未来を変えていくアカウントを、あなたと作りたいのです。</p>
+        <p>——なぜなら、私自身、SNSとの出会いによって本当に人生を変えてもらったから。</p>
+        <p>だからこそ、クライアント様の大切に磨き上げてきた素晴らしいサービスを、まだ知らない人・今まさに必要としている人のもとへ、<span class="profile-strong">SNSを使って本気で届けていきたい</span>。SNSって、本当にすごい。その力を、私自身、誰よりも信じているからこそ、一緒に未来を変えていくアカウントを、あなたと作りたいのです。</p>
         <p><span class="profile-strong">あなたの発信を、一緒に育てさせてください。</span></p>
       </div>
     </div>
