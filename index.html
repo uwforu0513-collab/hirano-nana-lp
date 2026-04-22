@@ -1147,6 +1147,77 @@
       border-radius: 2px;
       pointer-events: none;
     }
+
+    /* Police ID card — stacked editorial element, face/name/top and 三重県警察 banner all heavily mosaicked */
+    .profile-id-card {
+      position: absolute;
+      top: 4%;
+      right: 4%;
+      width: 34%;
+      aspect-ratio: 9/16;
+      overflow: hidden;
+      border-radius: 3px;
+      box-shadow: 0 18px 40px rgba(30,30,30,.25), 0 3px 10px rgba(30,30,30,.18);
+      transform: rotate(4deg);
+      transform-origin: center center;
+      background: #f6efe6;
+      z-index: 3;
+    }
+    .profile-id-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      aspect-ratio: auto;
+      opacity: 1;
+      filter: saturate(.95) contrast(.95);
+      mix-blend-mode: normal;
+    }
+    /* Primary top mosaic — covers entire ID card portion (face + 巡査長 + name + 第○○号) */
+    .profile-id-mask-top {
+      position: absolute;
+      top: 3%; left: 14%;
+      width: 62%; height: 38%;
+      backdrop-filter: blur(22px) saturate(.5);
+      -webkit-backdrop-filter: blur(22px) saturate(.5);
+      background:
+        repeating-linear-gradient(0deg,  rgba(60,65,95,.55) 0 5px, rgba(95,100,135,.45) 5px 10px),
+        repeating-linear-gradient(90deg, rgba(45,50,80,.30) 0 5px, rgba(80,85,120,.22) 5px 10px),
+        repeating-linear-gradient(45deg, rgba(30,35,60,.18) 0 3px, rgba(120,125,160,.14) 3px 6px);
+      border-radius: 1px;
+      pointer-events: none;
+    }
+    /* Secondary top mosaic — slight offset, extra scrambling so no pixel is legible */
+    .profile-id-mask-top2 {
+      position: absolute;
+      top: 5%; left: 16%;
+      width: 58%; height: 34%;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background:
+        repeating-linear-gradient(20deg, rgba(235,225,210,.35) 0 6px, rgba(80,80,105,.35) 6px 12px),
+        repeating-linear-gradient(110deg, rgba(40,40,65,.25) 0 4px, rgba(180,175,170,.18) 4px 8px);
+      border-radius: 1px;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+    /* Badge banner mosaic — covers the "三重県警察" ribbon */
+    .profile-id-mask-badge {
+      position: absolute;
+      bottom: 13%; left: 18%;
+      width: 58%; height: 7%;
+      backdrop-filter: blur(10px) saturate(.7);
+      -webkit-backdrop-filter: blur(10px) saturate(.7);
+      background:
+        repeating-linear-gradient(0deg,  rgba(80,55,20,.55) 0 3px, rgba(140,105,55,.45) 3px 6px),
+        repeating-linear-gradient(90deg, rgba(60,40,15,.25) 0 3px, rgba(160,125,70,.20) 3px 6px);
+      border-radius: 1px;
+      pointer-events: none;
+    }
+    @media (max-width: 860px) {
+      .profile-id-card { width: 42%; top: 3%; right: 3%; transform: rotate(3deg); }
+    }
     .profile-img-deco {
       display: none;
     }
@@ -2055,6 +2126,12 @@
     <div class="profile-img-wrap js-fade-img">
       <img src="images/police-main.jpg" alt="警察官時代の装備">
       <div class="profile-img-mosaic" aria-hidden="true"></div>
+      <div class="profile-id-card" aria-hidden="true">
+        <img src="images/police-id.jpg" alt="">
+        <div class="profile-id-mask-top"></div>
+        <div class="profile-id-mask-top2"></div>
+        <div class="profile-id-mask-badge"></div>
+      </div>
       <div class="profile-img-deco"></div>
       <div class="profile-namecard">
         <div class="profile-namecard-name">Nana Hirano</div>
