@@ -1147,14 +1147,20 @@
       border-radius: 2px;
       pointer-events: none;
     }
-    /* Stack: uniform photo on top, police badge directly below at same size with gap */
+    /* Stack: uniform photo on top, police badge directly below — stretches to match body height so badge bottom aligns with text bottom */
     .profile-img-stack {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      align-self: stretch;
     }
-    /* Badge variant — transparent PNG, scaled to wallet-size inside a frame matching the uniform */
+    /* Badge variant — transparent PNG, 80% of uniform size, pushed to the bottom so it aligns with the final profile text line */
     .profile-img-wrap--badge {
+      width: 80%;
+      aspect-ratio: 3/4;
+      margin-left: 0;
+      margin-right: auto;
+      margin-top: auto;
       background: transparent;
       overflow: visible;
       display: flex;
@@ -1162,13 +1168,13 @@
       justify-content: center;
     }
     .profile-img-wrap--badge img {
-      width: 62%;
-      height: auto;
+      width: 100%;
+      height: 100%;
       aspect-ratio: auto;
       object-fit: contain;
       object-position: center center;
-      opacity: .92;
-      filter: sepia(.12) saturate(.95) contrast(.96) brightness(1.02);
+      opacity: .9;
+      filter: sepia(.12) saturate(.9) contrast(.95) brightness(1.02) blur(1.4px);
       mix-blend-mode: normal;
     }
     /* Hide the uniform-specific cream overlay on the badge wrap */
