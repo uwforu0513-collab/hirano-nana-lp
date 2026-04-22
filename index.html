@@ -1153,12 +1153,26 @@
       flex-direction: column;
       gap: 1.5rem;
     }
-    /* Badge variant — same dimensions as uniform wrap, image already has mosaic baked in */
-    .profile-img-wrap--badge { background: var(--bg); }
+    /* Badge variant — transparent PNG, scaled to wallet-size inside a frame matching the uniform */
+    .profile-img-wrap--badge {
+      background: transparent;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .profile-img-wrap--badge img {
+      width: 62%;
+      height: auto;
+      aspect-ratio: auto;
       object-fit: contain;
       object-position: center center;
+      opacity: .92;
+      filter: sepia(.12) saturate(.95) contrast(.96) brightness(1.02);
+      mix-blend-mode: normal;
     }
+    /* Hide the uniform-specific cream overlay on the badge wrap */
+    .profile-img-wrap.profile-img-wrap--badge::after { display: none; }
 
     .profile-img-deco {
       display: none;
