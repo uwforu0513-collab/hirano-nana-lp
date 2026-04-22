@@ -372,13 +372,13 @@
       position: absolute;
       inset: 0;
       background-image: url('images/bg-benefits.jpg');
-      background-size: min(380px, 45vw) auto;
-      background-position: center center;
+      background-size: min(265px, 31vw) auto;
+      background-position: 28% center;
       background-repeat: no-repeat;
-      opacity: .18;
-      filter: blur(2.5px);
-      -webkit-mask-image: radial-gradient(ellipse at center, #000 45%, transparent 85%);
-              mask-image: radial-gradient(ellipse at center, #000 45%, transparent 85%);
+      opacity: .34;
+      filter: blur(3px) saturate(1.35) contrast(1.08);
+      -webkit-mask-image: radial-gradient(ellipse at 28% center, #000 40%, transparent 80%);
+              mask-image: radial-gradient(ellipse at 28% center, #000 40%, transparent 80%);
       pointer-events: none;
       z-index: 0;
     }
@@ -1146,6 +1146,46 @@
         repeating-linear-gradient(90deg, rgba(30,38,70,.25) 0 4px, rgba(60,70,110,.20) 4px 8px);
       border-radius: 2px;
       pointer-events: none;
+    }
+    /* Police badge — half-sized editorial insert placed low-right, below the uniform visual */
+    .profile-badge {
+      position: absolute;
+      right: 4%;
+      bottom: 4%;
+      width: 32%;
+      aspect-ratio: 10/16;
+      overflow: hidden;
+      transform: rotate(3deg);
+      transform-origin: center center;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .profile-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      aspect-ratio: auto;
+      opacity: 1;
+      filter: saturate(1) contrast(1);
+      mix-blend-mode: normal;
+    }
+    /* Soft blur on the "三重県警察" ribbon on the badge */
+    .profile-badge-mask {
+      position: absolute;
+      left: 18%;
+      top: 38%;
+      width: 55%;
+      height: 6%;
+      backdrop-filter: blur(6px) saturate(.8);
+      -webkit-backdrop-filter: blur(6px) saturate(.8);
+      background:
+        repeating-linear-gradient(0deg,  rgba(95,65,20,.45) 0 2px, rgba(155,115,55,.35) 2px 4px);
+      border-radius: 1px;
+    }
+    @media (max-width: 860px) {
+      .profile-badge { width: 38%; right: 3%; bottom: 3%; transform: rotate(2deg); }
     }
 
     .profile-img-deco {
@@ -2072,6 +2112,10 @@
     <div class="profile-img-wrap js-fade-img">
       <img src="images/police-main.jpg" alt="警察官時代の装備">
       <div class="profile-img-mosaic" aria-hidden="true"></div>
+      <div class="profile-badge" aria-hidden="true">
+        <img src="images/police-badge.png" alt="">
+        <div class="profile-badge-mask"></div>
+      </div>
       <div class="profile-img-deco"></div>
       <div class="profile-namecard">
         <div class="profile-namecard-name">Nana Hirano</div>
@@ -2095,7 +2139,7 @@
           「動画が大事なのはわかるけど、難しくて続かない」
         </div>
         <p>私は<span class="profile-strong">「これだ！」</span>と思いました。これを絶対に仕事にしたいと決めて、ゼロから学び始めました。</p>
-        <p>最初は動画スキルもゼロの状態。けれど学びを進める中で、<span class="profile-strong">動画単体では、クライアント様に十分な結果を還元できていないのではないか</span>——そう感じるようになりました。そんな現状を、私は重く受け止めました。</p>
+        <p>最初は動画スキルもゼロの状態。けれど学びを進める中で、<span class="profile-strong">動画単体では、クライアント様に十分な結果を還元できていないのではないか</span>——そう感じるようになりました。</p>
         <p>だから私は、単なる動画編集という<span class="profile-strong">一時的な納品物の提供にとどまらず</span>、クライアント様のSNSを通じて、<span class="profile-strong">本当に得たい未来を共に作り上げていくパートナーでありたい</span>と考えるようになりました。その手段こそが「SNS運用代行」——この道を選んだ理由です。</p>
         <p>SNSはただの発信ではなく、<span class="profile-strong">まだ出会えていない人に、価値を届ける“きっかけ”</span>になるもの。私はそう信じています。</p>
         <p>——なぜなら、私自身、SNSとの出会いによって本当に人生を変えてもらったから。</p>
