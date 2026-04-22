@@ -231,10 +231,12 @@
       min-height: 560px;
       z-index: 1;
     }
-    .hero-right img {
+    .hero-right img,
+    .hero-right video {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center center;
+      display: block;
       animation: heroFadeZoom 2.4s cubic-bezier(.22,1,.36,1) .2s both;
     }
     @keyframes heroFadeZoom {
@@ -1027,7 +1029,47 @@
     }
 
     /* ===== PROFILE ===== */
-    .profile { padding: 10rem 7vw; background: var(--bg-section); }
+    .profile {
+      position: relative;
+      padding: 10rem 7vw;
+      background: var(--bg-section);
+      overflow: hidden;
+    }
+    .profile::before {
+      content: "";
+      position: absolute;
+      top: 8%;
+      right: -4%;
+      width: 34%;
+      height: 60%;
+      background-image: url('images/police-uniform.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: .08;
+      filter: blur(1.5px) grayscale(60%) contrast(.9);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 75%);
+              mask-image: radial-gradient(ellipse at center, #000 40%, transparent 75%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .profile::after {
+      content: "";
+      position: absolute;
+      bottom: 6%;
+      left: -3%;
+      width: 24%;
+      height: 45%;
+      background-image: url('images/police-uniform.jpg');
+      background-size: cover;
+      background-position: 70% 30%;
+      opacity: .06;
+      filter: blur(2.5px) grayscale(80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 70%);
+              mask-image: radial-gradient(ellipse at center, #000 30%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .profile-inner, .profile > * { position: relative; z-index: 1; }
     .profile-inner {
       display: grid;
       grid-template-columns: 1fr 1.1fr;
@@ -1490,7 +1532,10 @@
     </p>
   </div>
   <div class="hero-right">
-    <img src="images/hero.png" alt="平野那奈 プロフィール写真">
+    <video poster="images/hero.png" autoplay muted loop playsinline preload="auto" aria-label="ヒーロー映像">
+      <source src="images/hero.mp4" type="video/mp4">
+      <source src="images/hero.mov" type="video/quicktime">
+    </video>
   </div>
 </section>
 
