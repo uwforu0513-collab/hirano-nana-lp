@@ -372,13 +372,13 @@
       position: absolute;
       inset: 0;
       background-image: url('images/bg-benefits.jpg');
-      background-size: min(265px, 31vw) auto;
+      background-size: min(400px, 47vw) auto;
       background-position: 28% center;
       background-repeat: no-repeat;
       opacity: .34;
-      filter: blur(3px) saturate(1.35) contrast(1.08);
-      -webkit-mask-image: radial-gradient(ellipse at 28% center, #000 40%, transparent 80%);
-              mask-image: radial-gradient(ellipse at 28% center, #000 40%, transparent 80%);
+      filter: blur(3.5px) saturate(1.35) contrast(1.08);
+      -webkit-mask-image: radial-gradient(ellipse at 28% center, #000 38%, transparent 82%);
+              mask-image: radial-gradient(ellipse at 28% center, #000 38%, transparent 82%);
       pointer-events: none;
       z-index: 0;
     }
@@ -1154,18 +1154,22 @@
       gap: 1.5rem;
       align-self: stretch;
     }
-    /* Badge variant — transparent PNG, 80% of uniform size, pushed to the bottom so it aligns with the final profile text line */
+    /* Badge variant — transparent PNG, enlarged ~2x and allowed to bleed into adjacent text column with a soft radial fade */
     .profile-img-wrap--badge {
-      width: 80%;
+      width: 160%;
       aspect-ratio: 3/4;
-      margin-left: 0;
-      margin-right: auto;
+      margin-left: -10%;
+      margin-right: 0;
       margin-top: auto;
       background: transparent;
       overflow: visible;
       display: flex;
       align-items: center;
       justify-content: center;
+      pointer-events: none;
+      z-index: 0;
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 38%, transparent 80%);
+              mask-image: radial-gradient(ellipse at center, #000 38%, transparent 80%);
     }
     .profile-img-wrap--badge img {
       width: 100%;
@@ -1173,12 +1177,15 @@
       aspect-ratio: auto;
       object-fit: contain;
       object-position: center center;
-      opacity: .9;
-      filter: sepia(.12) saturate(.9) contrast(.95) brightness(1.02) blur(1.4px);
+      opacity: .95;
+      filter: sepia(.12) saturate(.9) contrast(.95) brightness(1.02) blur(2px);
       mix-blend-mode: normal;
     }
     /* Hide the uniform-specific cream overlay on the badge wrap */
     .profile-img-wrap.profile-img-wrap--badge::after { display: none; }
+    @media (max-width: 860px) {
+      .profile-img-wrap--badge { width: 100%; margin-left: 0; }
+    }
 
     .profile-img-deco {
       display: none;
